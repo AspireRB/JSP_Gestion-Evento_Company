@@ -7,10 +7,7 @@ package config;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.DriverManager;
-/**
- *
- * @author Ingytelcom
- */
+
 public class Conexion {
     
     public Connection getConexion (){

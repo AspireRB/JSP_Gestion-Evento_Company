@@ -6,10 +6,6 @@ package model;
 
 import java.util.Date;
 
-/**
- *
- * @author Ingytelcom
- */
 public class Evento {
     private int id;
     private String nombre, ciudad, ubicación, descripción;

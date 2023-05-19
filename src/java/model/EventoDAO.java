@@ -4,10 +4,6 @@
  */
 package model;
 
-/**
- *
- * @author Ingytelcom
- */
 public class EventoDAO {
     
 }
