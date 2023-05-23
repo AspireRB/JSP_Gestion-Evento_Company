@@ -54,34 +54,59 @@
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h1 class="mb-0">Crear salon</h6>
+                        <h1 class="mb-0">Ciudades</h6>
+                        <a class="btn btn-success m-2" href="crearCiudad.jsp">Crear ciudad</a>
                     </div>
-                    <div class="row g-4">
-                        <div class="col-sm-12 col-xl-6">
-                            <div class="bg-light rounded h-100 p-4" >
-                                <form>
-                                    <div class="form-floating mb-3">
-                                        <input type="nombre" class="form-control" id="floatingInput"
-                                            placeholder="">
-                                        <label for="floatingInput">Nombre</label>
-                                    </div>                             
-                                    <div class="form-floating mb-3">
-                                        <input type="nombre" class="form-control" id="floatingInput"
-                                            placeholder="">
-                                        <label for="floatingInput">Capacidad</label>
-                                    </div>                                   
-                                </form>
-                            </div>                     
-                        </div>
-                        <div class="col-sm-12 col-xl-6">
-                            <div class="bg-light rounded h-100 p-4" >
-                                <div class="bg-light rounded h-100 p-5">
-                                    <div class="m-n2">
-                                        <a class="btn btn-lg btn-primary w-100" href="Salones.jsp">Crear</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>                        
+                    <form class="d-flex align-items-center justify-content-between mb-4">
+                        <input class="form-control border-0" type="search" placeholder="Buscar">
+                    </form>
+                    <div class="table-responsive">
+                        <table class="table text-start align-middle table-bordered table-hover mb-0">
+                            <thead>
+                                <tr class="text-dark">  
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Bogota</td>
+                                    <td><a class="btn btn-primary rounded-pill m-2" href="modificarCiudad.jsp">Modificar</a>
+                                        <a class="btn btn-danger rounded-pill m-2" href="Ciudades.jsp">Eliminar</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Medellin</td>
+                                    <td><a class="btn btn-primary rounded-pill m-2" href="modificarCiudad.jsp">Modificar</a>
+                                        <a class="btn btn-danger rounded-pill m-2" href="Ciudades.jsp">Eliminar</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Bucaramanga</td>
+                                    <td><a class="btn btn-primary rounded-pill m-2" href="modificarCiudad.jsp">Modificar</a>
+                                        <a class="btn btn-danger rounded-pill m-2" href="Ciudades.jsp">Eliminar</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Barranquilla</td>
+                                    <td><a class="btn btn-primary rounded-pill m-2" href="modificarCiudad.jsp">Modificar</a>
+                                        <a class="btn btn-danger rounded-pill m-2" href="Ciudades.jsp">Eliminar</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>Cauca</td>
+                                    <td><a class="btn btn-primary rounded-pill m-2" href="modificarCiudad.jsp">Modificar</a>
+                                        <a class="btn btn-danger rounded-pill m-2" href="Ciudades.jsp">Eliminar</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

@@ -54,7 +54,7 @@
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h1 class="mb-0">Crear salon</h6>
+                        <h1 class="mb-0">Lugar</h6>
                     </div>
                     <div class="row g-4">
                         <div class="col-sm-12 col-xl-6">
@@ -66,9 +66,14 @@
                                         <label for="floatingInput">Nombre</label>
                                     </div>                             
                                     <div class="form-floating mb-3">
-                                        <input type="nombre" class="form-control" id="floatingInput"
-                                            placeholder="">
-                                        <label for="floatingInput">Capacidad</label>
+                                        <select class="form-select" id="floatingSelect"
+                                            aria-label="Floating label select example">
+                                            <option selected></option>
+                                            <option value="1">Bogota</option>
+                                            <option value="2">Medellin</option>
+                                            <option value="3">Bucaramanga</option>
+                                        </select>
+                                        <label for="floatingSelect">Ciudad</label>
                                     </div>                                   
                                 </form>
                             </div>                     
@@ -77,7 +82,7 @@
                             <div class="bg-light rounded h-100 p-4" >
                                 <div class="bg-light rounded h-100 p-5">
                                     <div class="m-n2">
-                                        <a class="btn btn-lg btn-primary w-100" href="Salones.jsp">Crear</a>
+                                        <a class="btn btn-lg btn-primary w-100" href="Lugares.jsp">Modificar</a>
                                     </div>
                                 </div>
                             </div>

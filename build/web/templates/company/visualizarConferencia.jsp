@@ -54,30 +54,47 @@
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h1 class="mb-0">Crear salon</h6>
+                        <h1 class="mb-0">Conferencia</h6>
                     </div>
-                    <div class="row g-4">
+                    <div class="row g-4">                        
                         <div class="col-sm-12 col-xl-6">
                             <div class="bg-light rounded h-100 p-4" >
-                                <form>
-                                    <div class="form-floating mb-3">
-                                        <input type="nombre" class="form-control" id="floatingInput"
-                                            placeholder="">
-                                        <label for="floatingInput">Nombre</label>
-                                    </div>                             
-                                    <div class="form-floating mb-3">
-                                        <input type="nombre" class="form-control" id="floatingInput"
-                                            placeholder="">
-                                        <label for="floatingInput">Capacidad</label>
-                                    </div>                                   
-                                </form>
+                                <div class="alert alert-secondary" role="alert">
+                                    Nombre de la conferencia
+                                </div>
+                                <div class="alert alert-secondary" role="alert">
+                                    Fecha de la conferencia
+                                </div>
+                                <div class="alert alert-secondary" role="alert">
+                                    Hora de inicio para la conferencia
+                                </div>
+                                <div class="alert alert-secondary" role="alert">
+                                    Hora de fin para la conferencia
+                                </div>
+                                <div class="alert alert-secondary" role="alert">
+                                    Evento a la que pertenece
+                                </div>                                                                
                             </div>                     
                         </div>
                         <div class="col-sm-12 col-xl-6">
                             <div class="bg-light rounded h-100 p-4" >
-                                <div class="bg-light rounded h-100 p-5">
+                                <div class="alert alert-secondary" role="alert">
+                                    Salon para la conferencia
+                                </div>
+                                <div class="alert alert-secondary" role="alert">
+                                    Conferencista de la conferencia
+                                </div>
+                                <div class="alert alert-secondary" role="alert">
+                                    Empleado que creo la conferencia
+                                </div>
+                                <div class="bg-light rounded p-3">
                                     <div class="m-n2">
-                                        <a class="btn btn-lg btn-primary w-100" href="Salones.jsp">Crear</a>
+                                        <a class="btn btn-primary w-100" href="modificarConferencia.jsp">Modificar</a>
+                                    </div>
+                                </div>
+                                <div class="bg-light rounded p-3">
+                                    <div class="m-n2">
+                                        <a class="btn btn-danger w-100" href="Conferencias.jsp">Eliminar</a>
                                     </div>
                                 </div>
                             </div>

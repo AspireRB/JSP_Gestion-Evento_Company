@@ -54,7 +54,7 @@
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-light text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h1 class="mb-0">Crear salon</h6>
+                        <h1 class="mb-0">Crear usuario</h6>
                     </div>
                     <div class="row g-4">
                         <div class="col-sm-12 col-xl-6">
@@ -63,21 +63,51 @@
                                     <div class="form-floating mb-3">
                                         <input type="nombre" class="form-control" id="floatingInput"
                                             placeholder="">
-                                        <label for="floatingInput">Nombre</label>
-                                    </div>                             
+                                        <label for="floatingInput">Cedula</label>
+                                    </div>
                                     <div class="form-floating mb-3">
                                         <input type="nombre" class="form-control" id="floatingInput"
                                             placeholder="">
-                                        <label for="floatingInput">Capacidad</label>
-                                    </div>                                   
+                                        <label for="floatingInput">Nombre</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input type="nombre" class="form-control" id="floatingInput"
+                                            placeholder="">
+                                        <label for="floatingInput">Apellido</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input type="nombre" class="form-control" id="floatingInput"
+                                            placeholder="">
+                                        <label for="floatingInput">Telefono</label>
+                                    </div>                                                                                                                                                
                                 </form>
                             </div>                     
                         </div>
                         <div class="col-sm-12 col-xl-6">
                             <div class="bg-light rounded h-100 p-4" >
-                                <div class="bg-light rounded h-100 p-5">
+                                <div class="form-floating mb-3">
+                                    <input type="nombre" class="form-control" id="floatingInput"
+                                        placeholder="">
+                                    <label for="floatingInput">Correo</label>
+                                </div> 
+                                <div class="form-floating mb-3">
+                                    <input type="nombre" class="form-control" id="floatingInput"
+                                        placeholder="">
+                                    <label for="floatingInput">Contraseña</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <select class="form-select" id="floatingSelect"
+                                        aria-label="Floating label select example">
+                                        <option selected></option>
+                                        <option value="1">AUTO</option>
+                                        <option value="2">ADMIN</option>
+                                        <option value="3">ASESOR</option>
+                                    </select>
+                                    <label for="floatingSelect">Tipo</label>
+                                </div>
+                                <div class="bg-light rounded h-100 p-4">
                                     <div class="m-n2">
-                                        <a class="btn btn-lg btn-primary w-100" href="Salones.jsp">Crear</a>
+                                        <a class="btn btn-lg btn-primary w-100" href="Usuarios.jsp">Crear</a>
                                     </div>
                                 </div>
                             </div>
