@@ -76,22 +76,22 @@
                                     <div class="form-floating mb-3"> 
                                         <input type="time" name="hora" class="form-control" min="08:00" max="18:00" step="3600"/>
                                         <label for="floatingInput">Hora fin</label>
-                                    </div>                                    
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <select class="form-select" id="floatingSelect"
+                                            aria-label="Floating label select example">
+                                            <option selected></option>
+                                            <option value="1">Feria del libro</option>
+                                            <option value="2">Feria de las dos ruedas</option>
+                                            <option value="3">Feria de agricultura</option>
+                                        </select>
+                                        <label for="floatingSelect">Evento</label>
+                                    </div> 
                                 </form>
                             </div>                     
                         </div>
                         <div class="col-sm-12 col-xl-6">
-                            <div class="bg-light rounded h-100 p-4" >                                                                   
-                                <div class="form-floating mb-3">
-                                    <select class="form-select" id="floatingSelect"
-                                        aria-label="Floating label select example">
-                                        <option selected></option>
-                                        <option value="1">Feria del libro</option>
-                                        <option value="2">Feria de las dos ruedas</option>
-                                        <option value="3">Feria de agricultura</option>
-                                    </select>
-                                    <label for="floatingSelect">Evento</label>
-                                </div> 
+                            <div class="bg-light rounded h-100 p-4" >
                                 <div class="form-floating mb-3">
                                     <select class="form-select" id="floatingSelect"
                                         aria-label="Floating label select example">
@@ -102,6 +102,16 @@
                                     </select>
                                     <label for="floatingSelect">Salon</label>
                                 </div>
+                                <div class="form-floating mb-3">
+                                    <select class="form-select" id="floatingSelect"
+                                        aria-label="Floating label select example">
+                                        <option selected></option>
+                                        <option value="1">Andres</option>
+                                        <option value="2">Felipe</option>
+                                        <option value="3">Alonso</option>
+                                    </select>
+                                    <label for="floatingSelect">Conferencista</label>
+                                </div> 
                                 <div class="form-floating mb-3">
                                     <select class="form-select" id="floatingSelect"
                                         aria-label="Floating label select example">

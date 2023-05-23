@@ -80,17 +80,7 @@
                                     <div class="form-floating mb-3"> 
                                         <input type="time" name="hora" class="form-control" min="08:00" max="18:00" step="3600"/>
                                         <label for="floatingInput">Hora fin</label>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <select class="form-select" id="floatingSelect"
-                                            aria-label="Floating label select example">
-                                            <option selected></option>
-                                            <option value="1">Bogota</option>
-                                            <option value="2">Medellin</option>
-                                            <option value="3">Bucaramanga</option>
-                                        </select>
-                                        <label for="floatingSelect">Ciudad</label>
-                                    </div> 
+                                    </div>                                    
                                     <div class="form-floating mb-3">
                                         <select class="form-select" id="floatingSelect"
                                             aria-label="Floating label select example">
