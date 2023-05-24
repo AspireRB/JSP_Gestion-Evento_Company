@@ -16,17 +16,18 @@ import java.sql.SQLException;
  */
 public class ConferencistaDaoJDBC {
 
+    Conexion con = new Conexion();
+    Connection cn = con.connect();
+    PreparedStatement stmt;
+
     private static final String SQL_INSERT = "INSERT INTO conferencista (cedula, nombre, apellido, correo, telefono)"
             + "VALUES (?, ?, ?, ?, ?)";
-  
-     
+
     public int insertar(Conferencista conferencista) {
-        Connection conn = null;
-        PreparedStatement stmt = null;
+
         int rows = 0;
         try {
-            conn = Conexion.getConnection();
-            stmt = conn.prepareStatement(SQL_INSERT);
+            stmt = cn.prepareStatement(SQL_INSERT);
             stmt.setLong(1, conferencista.getCedula());
             stmt.setString(2, conferencista.getNombre());
             stmt.setString(3, conferencista.getApellido());
@@ -34,19 +35,11 @@ public class ConferencistaDaoJDBC {
             stmt.setLong(5, conferencista.getTelefono());
 
             rows = stmt.executeUpdate();
-
         } catch (SQLException ex) {
-            ex.printStackTrace(System.out);
-
-        } finally {
-
-            Conexion.close(stmt);
-            Conexion.close(conn);
+            ex.printStackTrace();
         }
 
         return rows;
     }
-    
-    
 
 }

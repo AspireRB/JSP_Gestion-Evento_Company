@@ -16,6 +16,10 @@ public class Conferencista {
        String correo;
        long telefono;
 
+    public Conferencista() {
+    }
+       
+
     public Conferencista(int id, long cedula, String nombre, String apellido, String correo, long telefono) {
         this.id = id;
         this.cedula = cedula;
