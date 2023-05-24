@@ -23,7 +23,7 @@
                     <a href="Eventos.jsp" class="dropdown-item">Consultar</a>
                 </div>
             </div>
-            <a href="Conferencistas.html" class="nav-item nav-link"><i class="fas fa-user-plus me-2"></i>Conferencistas</a>
+             <a href="Conferencistas.jsp" class="nav-item nav-link"><i class="fas fa-user-plus me-2"></i>Conferencistas</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="bi bi-kanban-fill"></i>Gestion</a>
                 <div class="dropdown-menu bg-transparent border-0">
