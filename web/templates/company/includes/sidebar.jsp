@@ -31,7 +31,7 @@
                     <a href="Lugares.jsp" class="dropdown-item">Lugar</a>
                 </div>
             </div>            
-            <a href="Clientes.html" class="nav-item nav-link"><i class="fas fa-user-plus me-2"></i>Clientes</a>
+            <a href="Clientes.jsp" class="nav-item nav-link"><i class="fas fa-user-plus me-2"></i>Clientes</a>
             <a href="Certificados.html" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Certificados</a>
             <!--<a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
             <div class="nav-item dropdown">
