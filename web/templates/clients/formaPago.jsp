@@ -1,12 +1,6 @@
 <%-- 
-    Document   : descargarCertificado
-    Created on : 23 may. 2023, 19:15:25
-    Author     : Lytos
---%>
-
-<%-- 
     Document   : index
-    Created on : 19 may. 2023, 00:19:54
+    Created on : 19 may. 2023, 00:29:35
     Author     : Lytos
 --%>
 
@@ -62,27 +56,21 @@
                     <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                         <div class="d-flex align-items-center justify-content-between mb-3">
                             <a href="http://localhost:8080/Gestion_Eventos/templates/clients/mostrarEventos.jsp" class="">
-                                <h3 class="text-primary"><i class="fa me-2"></i>Logistic</h3>
+                                <h2 class="text-primary"><i class="fa me-2"></i>Logistic</h2>
                             </a>
-                            <h3>Certificado</h3>
-                        </div>                      
                             
-                        
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingCedula" placeholder="123456789">
-                            <label for="floatingCedula">Cédula</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <select class="form-select" id="eventoSelect">
-                                <option value="" selected disabled>Selecciona un evento</option>
-                                <option value="evento1">Evento 1</option>
-                                <option value="evento2">Evento 2</option>
-                                <option value="evento3">Evento 3</option>
-                                <!-- Agrega más opciones de eventos según sea necesario -->
-                            </select>
-                            <label for="eventoSelect">Evento</label>
-                        </div>                        
-                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Ingresar</button>                        
+                        </div>                   
+                        <h4 class="w-100">Formas de pago</h4>
+                        <form action="" class="nav-link">
+                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Descargar recibo</button> 
+                        </form>
+                        <form action="http://localhost:8080/Gestion_Eventos/templates/clients/pagoEnLinea.jsp" method="get" class="nav-link">
+                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Pagar en linea</button>
+                        </form>
+                        <form action="http://localhost:8080/Gestion_Eventos/templates/clients/mostrarEventos.jsp" method="get" class="nav-link">
+                            <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Salir</button>
+                        </form>                        
+                                                   
                     </div>
                 </div>
             </div>
