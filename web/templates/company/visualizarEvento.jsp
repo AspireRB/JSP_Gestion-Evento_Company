@@ -149,6 +149,11 @@
                                 </div>
                                 <div class="bg-light rounded p-3">
                                     <div class="m-n2">
+                                        <a class="btn btn-primary w-100" href="Clientes.jsp">Clientes</a>
+                                    </div>
+                                </div>
+                                <div class="bg-light rounded p-3">
+                                    <div class="m-n2">
                                         <a class="btn btn-danger w-100" href="Eventos.jsp">Eliminar</a>
                                     </div>
                                 </div>  
