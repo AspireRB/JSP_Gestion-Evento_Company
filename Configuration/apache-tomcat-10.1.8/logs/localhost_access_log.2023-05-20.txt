@@ -1,0 +1,13 @@
+0:0:0:0:0:0:0:1 - - [20/May/2023:22:39:40 -0500] "GET /Gestion_Eventos/static/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/May/2023:22:39:40 -0500] "GET /Gestion_Eventos/static/lib/owlcarousel/assets/owl.carousel.min.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/May/2023:22:39:40 -0500] "GET /Gestion_Eventos/static/lib/easing/easing.min.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/May/2023:22:39:40 -0500] "GET /Gestion_Eventos/static/css/bootstrap.min.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/May/2023:22:39:40 -0500] "GET /Gestion_Eventos/static/lib/chart/chart.min.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/May/2023:22:39:40 -0500] "GET /Gestion_Eventos/static/css/style.css HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/May/2023:22:39:40 -0500] "GET /Gestion_Eventos/static/js/main.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/May/2023:22:39:40 -0500] "GET /Gestion_Eventos/static/lib/tempusdominus/js/moment-timezone.min.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/May/2023:22:39:40 -0500] "GET /Gestion_Eventos/static/lib/waypoints/waypoints.min.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/May/2023:22:39:40 -0500] "GET /Gestion_Eventos/static/lib/owlcarousel/owl.carousel.min.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/May/2023:22:39:40 -0500] "GET /Gestion_Eventos/static/lib/tempusdominus/js/moment.min.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/May/2023:22:39:40 -0500] "GET /Gestion_Eventos/static/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [20/May/2023:22:39:40 -0500] "GET /Gestion_Eventos/static/img/user.jpg HTTP/1.1" 304 -

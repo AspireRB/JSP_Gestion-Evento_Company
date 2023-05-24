@@ -7,24 +7,43 @@ package domain;
 import java.util.Date;
 
 public class Evento {
+    
     private int id;
-    private String nombre, ciudad, ubicación, descripción;
-    private Date fechaInicio, fechaFin;
+    private String nombre, ciudad, lugar, descripcion;
+    private Date fechaInicio, fechaFin, horaInicio, horaFin;
     private Double costo;
     private Enum estado;
 
-    public Evento(int id, String nombre, String ciudad, String ubicación, String descripción, Date fechaInicio, Date fechaFin, Double costo, Enum estado) {
+    public Evento() {
+    }
+       
+    public Evento(int id, String nombre, String ciudad, String lugar, String descripcion, Date fechaInicio, Date fechaFin, Date horaInicio, Date horaFin, Double costo, Enum estado) {
         this.id = id;
         this.nombre = nombre;
         this.ciudad = ciudad;
-        this.ubicación = ubicación;
-        this.descripción = descripción;
+        this.lugar = lugar;
+        this.descripcion = descripcion;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
+        this.horaInicio = horaInicio;
+        this.horaFin = horaFin;
         this.costo = costo;
         this.estado = estado;
     }
-    
+
+    public Evento(String nombre, String ciudad, String lugar, String descripcion, Date fechaInicio, Date fechaFin, Date horaInicio, Date horaFin, Double costo, Enum estado) {
+        this.nombre = nombre;
+        this.ciudad = ciudad;
+        this.lugar = lugar;
+        this.descripcion = descripcion;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.horaInicio = horaInicio;
+        this.horaFin = horaFin;
+        this.costo = costo;
+        this.estado = estado;
+    }
+
     public int getId() {
         return id;
     }
@@ -49,20 +68,20 @@ public class Evento {
         this.ciudad = ciudad;
     }
 
-    public String getUbicación() {
-        return ubicación;
+    public String getLugar() {
+        return lugar;
     }
 
-    public void setUbicación(String ubicación) {
-        this.ubicación = ubicación;
+    public void setLugar(String lugar) {
+        this.lugar = lugar;
     }
 
-    public String getDescripción() {
-        return descripción;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setDescripción(String descripción) {
-        this.descripción = descripción;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public Date getFechaInicio() {
@@ -81,6 +100,22 @@ public class Evento {
         this.fechaFin = fechaFin;
     }
 
+    public Date getHoraInicio() {
+        return horaInicio;
+    }
+
+    public void setHoraInicio(Date horaInicio) {
+        this.horaInicio = horaInicio;
+    }
+
+    public Date getHoraFin() {
+        return horaFin;
+    }
+
+    public void setHoraFin(Date horaFin) {
+        this.horaFin = horaFin;
+    }
+
     public Double getCosto() {
         return costo;
     }
@@ -96,5 +131,5 @@ public class Evento {
     public void setEstado(Enum estado) {
         this.estado = estado;
     }
-      
+        
 }

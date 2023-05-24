@@ -13,7 +13,7 @@ public class Conexion {
             Class.forName(driver);
             System.out.println("Driver cargado con exito");
             try {
-                conexion = DriverManager.getConnection("jdbc:mysql://localhost:3307/gestion_evento?useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true", "root", "");
+                conexion = DriverManager.getConnection("jdbc:mysql://localhost:3305/gestion_evento?useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true", "root", "");
                 if (conexion != null) {
                     System.out.println("Conexion realizada con exito");
                 }
