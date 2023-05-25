@@ -1,12 +1,6 @@
 <%-- 
-    Document   : descargarCertificado
-    Created on : 23 may. 2023, 19:15:25
-    Author     : Lytos
---%>
-
-<%-- 
     Document   : index
-    Created on : 19 may. 2023, 00:19:54
+    Created on : 19 may. 2023, 00:29:35
     Author     : Lytos
 --%>
 
@@ -64,25 +58,20 @@
                             <a href="http://localhost:8080/Gestion_Eventos/templates/clients/mostrarEventos.jsp" class="">
                                 <h3 class="text-primary"><i class="fa me-2"></i>Logistic</h3>
                             </a>
-                            <h3>Certificado</h3>
-                        </div>                      
-                            
-                        
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="floatingCedula" placeholder="123456789">
-                            <label for="floatingCedula">Cédula</label>
+                            <h3>Ingresar</h3>
                         </div>
                         <div class="form-floating mb-3">
-                            <select class="form-select" id="eventoSelect">
-                                <option value="" selected disabled>Selecciona un evento</option>
-                                <option value="evento1">Evento 1</option>
-                                <option value="evento2">Evento 2</option>
-                                <option value="evento3">Evento 3</option>
-                                <!-- Agrega más opciones de eventos según sea necesario -->
-                            </select>
-                            <label for="eventoSelect">Evento</label>
-                        </div>                        
-                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Ingresar</button>                        
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput">Correo</label>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <label for="floatingPassword">Contraseña</label>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between mb-4">                            
+                            <a href="">¿Olvidaste la contraseña?</a>
+                        </div>
+                        <a type="submit" class="btn btn-primary py-3 w-100 mb-4" href="Eventos.jsp">Ingresar</a>                        
                     </div>
                 </div>
             </div>
@@ -106,4 +95,3 @@
 </body>
 
 </html>
-

@@ -3,16 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/git/JSP_Gestion-Evento/web/static/scss/bootstrap/scss/_breadcrumb.scss</file>
-            <file>file:/C:/git/JSP_Gestion-Evento/src/java/controller/EventoController.java</file>
-            <file>file:/C:/git/JSP_Gestion-Evento/src/java/config/Conexion.java</file>
-            <file>file:/C:/git/JSP_Gestion-Evento/web/templates/company/Eventos.jsp</file>
-            <file>file:/C:/git/JSP_Gestion-Evento/web/templates/index.jsp</file>
-            <file>file:/C:/git/JSP_Gestion-Evento/web/templates/company/modificarUsuario.jsp</file>
-            <file>file:/C:/git/JSP_Gestion-Evento/web/templates/company/includes/sidebar.jsp</file>
-            <file>file:/C:/git/JSP_Gestion-Evento/nbproject/genfiles.properties</file>
-            <file>file:/C:/git/JSP_Gestion-Evento/src/java/controller/ConferenController.java</file>
-            <file>file:/C:/git/JSP_Gestion-Evento/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/Ingytelcom/ProjectsCode/Gestion_Eventos/src/java/model/EventoDAO.java</file>
+            <file>file:/C:/Users/Ingytelcom/ProjectsCode/Gestion_Eventos/src/java/config/Conexion.java</file>
+            <file>file:/C:/Users/Ingytelcom/ProjectsCode/Gestion_Eventos/src/java/controller/EventoController.java</file>
+            <file>file:/C:/Users/Ingytelcom/ProjectsCode/Gestion_Eventos/web/templates/company/visualizarEvento.jsp</file>
         </group>
     </open-files>
 </project-private>
