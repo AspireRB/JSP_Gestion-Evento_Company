@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
+import javax.swing.JOptionPane;
 import model.ConferencistaDaoJDBC;
 
 /**
@@ -19,58 +20,43 @@ import model.ConferencistaDaoJDBC;
  */
 public class ConferenController extends HttpServlet {
 
-    protected void processRequest(jakarta.servlet.http.HttpServletRequest request, jakarta.servlet.http.HttpServletResponse response)
-            throws jakarta.servlet.ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet EventoController</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet EventoController at " + request.getContextPath() + "</h1>");
-            long cedula = (long) request.getAttribute("cedula");
-            String nombre = (String) request.getAttribute("nombre");
-            String apellido = (String) request.getAttribute("apellido");
-            String correo = (String) request.getAttribute("correo");
-            long telefono = (long) request.getAttribute("telefono");
-
-            out.println("<p>Cédula: " + cedula + nombre + apellido + correo + telefono + "</p>");
-
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        if (request.getParameter("guardar") != null) {
 
-        long cedula = Long.parseLong(request.getParameter("cedula"));
-        String nombre = request.getParameter("nombre");
-        String apellido = request.getParameter("apellido");
-        String correo = request.getParameter("correo");
-        long telefono = Long.parseLong(request.getParameter("telefono"));
+            long cedula = Long.parseLong(request.getParameter("cedula"));
+            String cedulaString = String.valueOf(cedula);
+            String nombre = request.getParameter("nombre");
+            String apellido = request.getParameter("apellido");
+            String correo = request.getParameter("correo");
+            long telefono = Long.parseLong(request.getParameter("telefono"));
+            String telefonoString = String.valueOf(cedula);
 
-        request.setAttribute("cedula", cedula);
-        request.setAttribute("nombre", nombre);
-        request.setAttribute("apellido", apellido);
-        request.setAttribute("correo", correo);
-        request.setAttribute("telefono", telefono);
+            if ( cedulaString.isEmpty() || nombre.isEmpty() || apellido.isEmpty() || correo.isEmpty() || telefonoString.isEmpty()) {
+                response.sendRedirect("templates/company/CrearConferencista.jsp");
 
-        Conferencista conferencista = new Conferencista();
-        conferencista.setCedula(cedula);
-        conferencista.setNombre(nombre);
-        conferencista.setApellido(apellido);
-        conferencista.setCorreo(correo);
-        conferencista.setTelefono(telefono);
 
-        ConferencistaDaoJDBC conferencistaDao = new ConferencistaDaoJDBC();
-        conferencistaDao.insertar(conferencista);
+            } else {
+                request.setAttribute("cedula", cedula);
+                request.setAttribute("nombre", nombre);
+                request.setAttribute("apellido", apellido);
+                request.setAttribute("correo", correo);
+                request.setAttribute("telefono", telefono);
 
-        processRequest(request, response);
+                Conferencista conferencista = new Conferencista();
+                conferencista.setCedula(cedula);
+                conferencista.setNombre(nombre);
+                conferencista.setApellido(apellido);
+                conferencista.setCorreo(correo);
+                conferencista.setTelefono(telefono);
+
+                ConferencistaDaoJDBC conferencistaDao = new ConferencistaDaoJDBC();
+                conferencistaDao.insertar(conferencista);
+                response.sendRedirect("templates/company/Conferencistas.jsp");
+            }
+
+        }
 
     }
 
