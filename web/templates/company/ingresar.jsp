@@ -55,23 +55,23 @@
                 <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
                     <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                            <a href="http://localhost:8080/Gestion_Eventos/templates/clients/mostrarEventos.jsp" class="">
-                                <h3 class="text-primary"><i class="fa me-2"></i>Logistic</h3>
-                            </a>
+                            <h3 class="text-primary"><i class="fa me-2"></i>Logistic</h3>
                             <h3>Ingresar</h3>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Correo</label>
-                        </div>
-                        <div class="form-floating mb-4">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Contraseña</label>
-                        </div>
-                        <div class="d-flex align-items-center justify-content-between mb-4">                            
-                            <a href="">¿Olvidaste la contraseña?</a>
-                        </div>
-                        <a type="submit" class="btn btn-primary py-3 w-100 mb-4" href="Eventos.jsp">Ingresar</a>                        
+                        <form action="../../SesionController" method="GET">
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" name="mail" id="mail" placeholder="name@example.com" required="">
+                                <label for="floatingInput">Correo</label>
+                            </div>
+                            <div class="form-floating mb-4">
+                                <input type="password" class="form-control" name="pass" id="pass" placeholder="Password" required>
+                                <label for="floatingPassword">Contraseña</label>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between mb-4">                            
+                                <a href="">¿Olvidaste la contraseña?</a>
+                            </div>
+                            <button type="submit" name="btnLogin" class="btn btn-primary py-3 w-100 mb-4">Ingresar</button>
+                        </form>
                     </div>
                 </div>
             </div>
