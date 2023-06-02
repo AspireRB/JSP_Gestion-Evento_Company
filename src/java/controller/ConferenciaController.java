@@ -84,7 +84,7 @@ public class ConferenciaController extends HttpServlet {
         List<Empleado> empleado = new EmpleadoDAO().listarEmpleado();
         HttpSession sesion = request.getSession();
         sesion.setAttribute("listaEvento", empleado);
-        response.sendRedirect("templates/company/crearEvento.jsp");
+        response.sendRedirect("templates/company/Empleados.jsp");
     } 
     
     private void buscarConferencia(HttpServletRequest request, HttpServletResponse response)
@@ -92,7 +92,7 @@ public class ConferenciaController extends HttpServlet {
         int con = Integer.parseInt(request.getParameter("idConferencia"));
         Conferencia conferencia = new ConferenciaDAO().buscar(new Conferencia(con));
         HttpSession session = request.getSession();
-        session.setAttribute("evento", conferencia);
+        session.setAttribute("conferencia", conferencia);
         response.sendRedirect("templates/company/modificarConferencia.jsp");
     }
     
@@ -147,7 +147,7 @@ public class ConferenciaController extends HttpServlet {
         if (conferenciaExistente) {
             System.out.println("Ya existe");
             String mensajeError = "Ya existe un conferencista con esa cedula o correo";
-            response.sendRedirect("templates/company/crearEvento.jsp?mensajeError=" + mensajeError);
+            response.sendRedirect("templates/company/crearConferencia.jsp?mensajeError=" + mensajeError);
         } else {
             System.out.println("No existe");
             ConferenciaDAO conferenciaDAO1 = new ConferenciaDAO();

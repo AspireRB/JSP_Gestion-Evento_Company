@@ -12,9 +12,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import model.SalonDAO;
 
@@ -55,7 +52,7 @@ public class SalonController extends HttpServlet {
         int con = Integer.parseInt(request.getParameter("idSalon"));
         Salon salon = new SalonDAO().buscar(new Salon(con));
         HttpSession session = request.getSession();
-        session.setAttribute("evento", salon);
+        session.setAttribute("salon", salon);
         response.sendRedirect("templates/company/modificarSalon.jsp");
     }
     
@@ -98,7 +95,7 @@ public class SalonController extends HttpServlet {
         if (salonExistente) {
             System.out.println("Ya existe");
             String mensajeError = "Ya existe un conferencista con esa cedula o correo";
-            response.sendRedirect("templates/company/crearEvento.jsp?mensajeError=" + mensajeError);
+            response.sendRedirect("templates/company/crearSalon.jsp?mensajeError=" + mensajeError);
         } else {
             System.out.println("No existe");
             SalonDAO salonDAO1 = new SalonDAO();
