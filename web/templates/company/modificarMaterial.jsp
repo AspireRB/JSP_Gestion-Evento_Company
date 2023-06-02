@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
+
 <%
 if (session.getAttribute("usuario") != null){
 %>
@@ -59,76 +61,70 @@ if (session.getAttribute("usuario") != null){
                             <div class="col-sm-12 col-xl-6">
                                 <div class="bg-light rounded h-100 p-4">
                                     <h6 class="mb-4">Material Conferencia</h6>
-                                    <form>
-                                        <div class="mb-3">
-                                            <label for="labelnombre">Nombre</label>
-                                            <input type="nombre" class="form-control" id="nombreMaterial">                                   
-                                        </div>
+                                    <form action="../../MaterialController?accion=modificar&idMaterial=${material.idMaterial}" method="POST" enctype="multipart/form-data" class="was-validated">
 
-                                        <div class="mb-3">
-                                            <label for="floatingTextarea">Descripcion</label>
-                                            <textarea class="form-control" 
-                                                      id="descripcionMaterial" style="height: 100px;"></textarea>
-                                        </div>
-                                        <div class="mb-3">
-                                            <select class="form-select" id="floatingSelect"
-                                                    aria-label="Floating label select example">
-                                                <option selected>Selecciona Conferencia</option>
-                                                <option value="1">Arquitectura</option>
-                                                <option value="2">Fisica</option>
-                                                <option value="3">Matematicas</option>
-                                            </select>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="formFile" class="form-label">Seleccione el archivo</label>
-                                            <input class="form-control" type="file" id="formFile">
-                                        </div>
 
-                                        <div class="bg-light rounded p-3">
-                                            <div class="m-n2">
-                                                <a class="btn btn-lg btn-primary w-100" href="Eventos.jsp">Modificar</a>
-                                            </div>
-                                        </div>
-                                        <div class="bg-light rounded p-3">
-                                            <div class="m-n2">
-                                                <a class="btn btn-lg btn-danger w-100" href="Eventos.jsp">Cancelar</a>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
+                                    <div class="mb-3">
+                                        <label for="labelnombre">Nombre</label>
+                                        <input type="text" class="form-control" id="inputnombre" name="nombre" pattern="[A-Za-z\s]+" title="Ingrese solo letras" required value="${material.nombre}">                                    
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="floatingTextarea">Descripción</label>
+                                        <textarea class="form-control" id="descripcionMaterial" name="descripcion" required style="height: 100px;">${material.descripcion}</textarea>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="floatingSelect">Selecciona Conferencia</label>
+                                        <select class="form-select" id="floatingSelect" name="conferencia" aria-label="Floating label select example" required value="${material.idConferencia}">
+                                            <c:forEach items="${listaConferencia}" var="material">
+                                                <option value="${material.idConferencia}">${material.nombre}</option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="formFile" class="form-label">Seleccione el archivo (PDF)</label>
+                                        <input class="form-control" type="file" id="formFile" name="archivo" accept=".pdf" required >
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary m-2"><i class="fas fa-check"></i>Actualizar</button>
+                                </form>
+
                             </div>
                         </div>
                     </div>
-                    <!-- Form End -->
+                </div>
+                <!-- Form End -->
 
 
-                    <!-- Footer Start -->
+                <!-- Footer Start -->
                 <jsp:include page="includes/footer.jsp"></jsp:include>
-                <!-- Footer End -->
+                    <!-- Footer End -->
+                </div>
+                <!-- Content End -->
+
+
+                <!-- Back to Top -->
+                <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
             </div>
-            <!-- Content End -->
 
+            <!-- JavaScript Libraries -->
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="../../static/lib/chart/chart.min.js"></script>
+            <script src="../../static/lib/easing/easing.min.js"></script>
+            <script src="../../static/lib/waypoints/waypoints.min.js"></script>
+            <script src="../../static/lib/owlcarousel/owl.carousel.min.js"></script>
+            <script src="../../static/lib/tempusdominus/js/moment.min.js"></script>
+            <script src="../../static/lib/tempusdominus/js/moment-timezone.min.js"></script>
+            <script src="../../static/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
-            <!-- Back to Top -->
-            <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-        </div>
+            <!-- Template Javascript -->
+            <script src="../../static/js/main.js"></script>
+        </body>
 
-        <!-- JavaScript Libraries -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="../../static/lib/chart/chart.min.js"></script>
-        <script src="../../static/lib/easing/easing.min.js"></script>
-        <script src="../../static/lib/waypoints/waypoints.min.js"></script>
-        <script src="../../static/lib/owlcarousel/owl.carousel.min.js"></script>
-        <script src="../../static/lib/tempusdominus/js/moment.min.js"></script>
-        <script src="../../static/lib/tempusdominus/js/moment-timezone.min.js"></script>
-        <script src="../../static/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-        <!-- Template Javascript -->
-        <script src="../../static/js/main.js"></script>
-    </body>
-
-</html>
+    </html>
 <%
 }else{
     response.sendRedirect("ingresar.jsp");

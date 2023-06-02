@@ -9,19 +9,22 @@ package domain;
  * @author DANIELA
  */
 public class Material {
+
     int idMaterial;
     String nombre;
     String descripcion;
     String rutaArchivo;
     int idConferencia;
 
-
-    public Material(int idMaterial, String nombre, String descripcion, String rutaArchivo) {
+    public Material(int idMaterial, String nombre, String descripcion, String rutaArchivo, int idConferencia) {
         this.idMaterial = idMaterial;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.rutaArchivo = rutaArchivo;
+        this.idConferencia = idConferencia;
     }
+
+  
 
     public Material(int idMaterial) {
         this.idMaterial = idMaterial;
@@ -37,8 +40,6 @@ public class Material {
         this.idConferencia = idConferencia;
     }
 
-   
-
     public int getIdConferencia() {
         return idConferencia;
     }
@@ -46,9 +47,6 @@ public class Material {
     public void setIdConferencia(int idConferencia) {
         this.idConferencia = idConferencia;
     }
-
-   
-    
 
     public int getIdMaterial() {
         return idMaterial;
@@ -81,6 +79,5 @@ public class Material {
     public void setRutaArchivo(String rutaArchivo) {
         this.rutaArchivo = rutaArchivo;
     }
-    
-    
+
 }

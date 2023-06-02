@@ -55,27 +55,26 @@ if (session.getAttribute("usuario") != null){
                     <!-- Navbar End -->
 
                     <!-- Form Start -->
-                    <form action="../../MaterialController?accion=insertar" method="POST" enctype="multipart/form-data">
-                        <div class="container-fluid pt-4 px-4">
-                            <div class="row g-4">
-                                <div class="col-sm-12 col-xl-6">
-                                    <div class="bg-light rounded h-100 p-4">
-                                        <h6 class="mb-4">Material Conferencia</h6>
+                    <div class="container-fluid pt-4 px-4">
+                        <div class="row g-4">
+                            <div class="col-sm-12 col-xl-6">
+                                <div class="bg-light rounded h-100 p-4">
+                                    <h6 class="mb-4">Material Conferencia</h6>
+                                    <form action="../../MaterialController?accion=insertar" method="POST" enctype="multipart/form-data" class="was-validated">
 
                                         <div class="mb-3">
                                             <label for="labelnombre">Nombre</label>
-                                            <input type="text" class="form-control" id="nombreMaterial" name="nombre">
+                                            <input type="text" class="form-control" id="inputnombre" name="nombre" pattern="[A-Za-z\s]+" title="Ingrese solo letras" required>                                    
                                         </div>
 
                                         <div class="mb-3">
                                             <label for="floatingTextarea">Descripción</label>
-                                            <textarea class="form-control" id="descripcionMaterial" name="descripcion" style="height: 100px;"></textarea>
+                                            <textarea  class="form-control" id="descripcionMaterial" name="descripcion" required style="height: 100px;"></textarea>
                                         </div>
 
                                         <div class="mb-3">
                                             <label for="floatingSelect">Selecciona Conferencia</label>
-                                            <select class="form-select" id="floatingSelect" name="conferencia" aria-label="Floating label select example">
-                                                <option selected>Selecciona Conferencia</option>
+                                            <select class="form-select" id="floatingSelect" name="conferencia" aria-label="Floating label select example" required>
                                             <c:forEach items="${listaConferencia}" var="material">
                                                 <option value="${material.idConferencia}">${material.nombre}</option>
                                             </c:forEach>
@@ -84,15 +83,24 @@ if (session.getAttribute("usuario") != null){
 
                                     <div class="mb-3">
                                         <label for="formFile" class="form-label">Seleccione el archivo (PDF)</label>
-                                        <input class="form-control" type="file" id="formFile" name="archivo" accept=".pdf">
+                                        <input class="form-control" type="file" id="formFile" name="archivo" accept=".pdf" required>
                                     </div>
 
                                     <button type="submit" class="btn btn-primary m-2">Registrar</button>
+                                </form>
+
+                                <div id="mensajeError">
+                                    <% String mensajeError = request.getParameter("mensajeError");
+                                       if (mensajeError != null) {
+                                           out.print(mensajeError);
+                                       }
+                                    %>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </form>
+                </div>
+
 
 
 
@@ -102,31 +110,31 @@ if (session.getAttribute("usuario") != null){
 
                 <!-- Footer Start -->
                 <jsp:include page="includes/footer.jsp"></jsp:include>
-                <!-- Footer End -->
+                    <!-- Footer End -->
+                </div>
+                <!-- Content End -->
+
+
+                <!-- Back to Top -->
+                <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
             </div>
-            <!-- Content End -->
 
+            <!-- JavaScript Libraries -->
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="../../static/lib/chart/chart.min.js"></script>
+            <script src="../../static/lib/easing/easing.min.js"></script>
+            <script src="../../static/lib/waypoints/waypoints.min.js"></script>
+            <script src="../../static/lib/owlcarousel/owl.carousel.min.js"></script>
+            <script src="../../static/lib/tempusdominus/js/moment.min.js"></script>
+            <script src="../../static/lib/tempusdominus/js/moment-timezone.min.js"></script>
+            <script src="../../static/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
-            <!-- Back to Top -->
-            <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-        </div>
+            <!-- Template Javascript -->
+            <script src="../../static/js/main.js"></script>
+        </body>
 
-        <!-- JavaScript Libraries -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="../../static/lib/chart/chart.min.js"></script>
-        <script src="../../static/lib/easing/easing.min.js"></script>
-        <script src="../../static/lib/waypoints/waypoints.min.js"></script>
-        <script src="../../static/lib/owlcarousel/owl.carousel.min.js"></script>
-        <script src="../../static/lib/tempusdominus/js/moment.min.js"></script>
-        <script src="../../static/lib/tempusdominus/js/moment-timezone.min.js"></script>
-        <script src="../../static/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-        <!-- Template Javascript -->
-        <script src="../../static/js/main.js"></script>
-    </body>
-
-</html>
+    </html>
 <%
 }else{
     response.sendRedirect("ingresar.jsp");
