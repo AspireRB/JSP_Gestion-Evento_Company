@@ -1,4 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+if (session.getAttribute("usuario") != null){
+%>
 <%@page import="java.util.List"%>
 <%@page import="domain.Conferencista"%>
 <%@page import="model.ConferencistaDaoJDBC"%>
@@ -127,3 +130,8 @@
     </body>
 
 </html>
+<%
+}else{
+    response.sendRedirect("ingresar.jsp");
+}
+%>
