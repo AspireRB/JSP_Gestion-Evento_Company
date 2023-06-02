@@ -43,7 +43,7 @@ public class CiudadController extends HttpServlet {
             throws ServletException, IOException {
         List<Ciudad> ciudad = new CiudadDAO().listar();
         HttpSession sesion = request.getSession();
-        sesion.setAttribute("listarCiudad", ciudad);
+        sesion.setAttribute("listaCiudad", ciudad);
         response.sendRedirect("templates/company/Ciudades.jsp");
     }  
     

@@ -56,19 +56,17 @@ public class LugarDAO {
         List<Lugar> lugares = new ArrayList<>();
 
         try {
-            stmt = connecting.prepareStatement("SELECT idLugar, nombre, Ciudad_idCiudad FROM Lugar");
+            stmt = connecting.prepareStatement("SELECT idLugar, nombre FROM Lugar");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
 
                 int id = rs.getInt("idLugar");
                 String nombre = rs.getString("nombre");
-                int idCiudad = rs.getInt("capacidad");
                               
                 Lugar lugar = new Lugar();
                 lugar.setId(id);
                 lugar.setNombre(nombre);
-                lugar.setCiudad_idCiudad(idCiudad);
 
                 lugares.add(lugar);
             }

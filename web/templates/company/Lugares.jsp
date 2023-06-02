@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
 if (session.getAttribute("usuario") != null){
@@ -69,51 +70,19 @@ if (session.getAttribute("usuario") != null){
                                 <tr class="text-dark">  
                                     <th scope="col">#</th>
                                     <th scope="col">Nombre</th>
-                                    <th scope="col">Ciudad</th>
                                     <th scope="col">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
+                            <c:forEach items="${listaLugar}" var="lugar">
                                 <tr>
-                                    <td>1</td>
-                                    <td>Feria informatica</td>
-                                    <td>Bogota</td> 
+                                    <td>${lugar.id}</td>
+                                    <td>${lugar.nombre}</td>
                                     <td><a class="btn btn-primary rounded-pill m-2" href="modificarLugar.jsp">Modificar</a>
                                         <a class="btn btn-danger rounded-pill m-2" href="Lugares.jsp">Eliminar</a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Feria del libro</td>
-                                    <td>Medellin</td> 
-                                    <td><a class="btn btn-primary rounded-pill m-2" href="modificarLugar.jsp">Modificar</a>
-                                        <a class="btn btn-danger rounded-pill m-2" href="Lugares.jsp">Eliminar</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Feria de las dos ruedas</td>
-                                    <td>Bucaramanga</td> 
-                                    <td><a class="btn btn-primary rounded-pill m-2" href="modificarLugar.jsp">Modificar</a>
-                                        <a class="btn btn-danger rounded-pill m-2" href="Lugares.jsp">Eliminar</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Barrancabermeja</td>
-                                    <td>48</td> 
-                                    <td><a class="btn btn-primary rounded-pill m-2" href="modificarLugar.jsp">Modificar</a>
-                                        <a class="btn btn-danger rounded-pill m-2" href="Lugares.jsp">Eliminar</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Armenia</td>
-                                    <td>48</td>
-                                    <td><a class="btn btn-primary rounded-pill m-2" href="modificarLugar.jsp">Modificar</a>
-                                        <a class="btn btn-danger rounded-pill m-2" href="Lugares.jsp">Eliminar</a>
-                                    </td>
-                                </tr>
+                            </c:forEach>                                
                             </tbody>
                         </table>
                     </div>

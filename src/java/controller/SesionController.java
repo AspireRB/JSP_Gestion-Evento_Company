@@ -1,6 +1,7 @@
 package controller;
 
 import domain.Empleado;
+import domain.Evento;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -8,9 +9,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 import model.EmpleadoDAO;
+import model.EventoDAO;
 
 /**
  *
@@ -52,8 +55,8 @@ public class SesionController extends HttpServlet {
                 usuario = uc.logIn(usuario);
                 if (usuario != null) {
                     sesion=request.getSession();
-                    sesion.setAttribute("usuario", usuario);
-                    response.sendRedirect("templates/company/Eventos.jsp");
+                    sesion.setAttribute("usuario", usuario);                    
+                    response.sendRedirect("EventoController");
                 } else {
                     request.setAttribute("msg", "Credenciales incorrectas");
                     response.sendRedirect("templates/company/ingresar.jsp");
@@ -62,7 +65,7 @@ public class SesionController extends HttpServlet {
             }
             response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
-
+                
 	/**
      * @param request
      * @param response

@@ -20,15 +20,15 @@
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-table me-2"></i>Eventos</a>
                 <div class="dropdown-menu bg-transparent border-0">
                     <a href="crearEvento.jsp" class="dropdown-item">Crear</a>
-                    <a href="Eventos.jsp" class="dropdown-item">Consultar</a>
+                    <a href="../../EventoController" class="dropdown-item">Consultar</a>
                 </div>
             </div>
              <a href="../../ConferencistaController" class="nav-item nav-link"><i class="fas fa-user-plus me-2"></i>Conferencistas</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="bi bi-kanban-fill"></i>Gestion</a>
                 <div class="dropdown-menu bg-transparent border-0">
-                    <a href="Ciudades.jsp" class="dropdown-item">Ciudad</a>
-                    <a href="Lugares.jsp" class="dropdown-item">Lugar</a>
+                    <a href="../../CiudadController" class="dropdown-item">Ciudad</a>
+                    <a href="../../LugarController" class="dropdown-item">Lugar</a>
                 </div>
             </div>
             <a href="Certificados.html" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Certificados</a>

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
 if (session.getAttribute("usuario") != null){
@@ -73,41 +74,15 @@ if (session.getAttribute("usuario") != null){
                                 </tr>
                             </thead>
                             <tbody>
+                            <c:forEach items="${listaCiudad}" var="ciudad">
                                 <tr>
-                                    <td>1</td>
-                                    <td>Bogota</td>
+                                    <td>${ciudad.id}</td>
+                                    <td>${ciudad.nombre}</td>
                                     <td><a class="btn btn-primary rounded-pill m-2" href="modificarCiudad.jsp">Modificar</a>
                                         <a class="btn btn-danger rounded-pill m-2" href="Ciudades.jsp">Eliminar</a>
                                     </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Medellin</td>
-                                    <td><a class="btn btn-primary rounded-pill m-2" href="modificarCiudad.jsp">Modificar</a>
-                                        <a class="btn btn-danger rounded-pill m-2" href="Ciudades.jsp">Eliminar</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Bucaramanga</td>
-                                    <td><a class="btn btn-primary rounded-pill m-2" href="modificarCiudad.jsp">Modificar</a>
-                                        <a class="btn btn-danger rounded-pill m-2" href="Ciudades.jsp">Eliminar</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Barranquilla</td>
-                                    <td><a class="btn btn-primary rounded-pill m-2" href="modificarCiudad.jsp">Modificar</a>
-                                        <a class="btn btn-danger rounded-pill m-2" href="Ciudades.jsp">Eliminar</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Cauca</td>
-                                    <td><a class="btn btn-primary rounded-pill m-2" href="modificarCiudad.jsp">Modificar</a>
-                                        <a class="btn btn-danger rounded-pill m-2" href="Ciudades.jsp">Eliminar</a>
-                                    </td>
-                                </tr>
+                                </tr> 
+                            </c:forEach>                             
                             </tbody>
                         </table>
                     </div>

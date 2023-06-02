@@ -30,6 +30,10 @@ public class Lugar {
         this.Ciudad_idCiudad = Ciudad_idCiudad;
     } 
 
+    public Lugar(int id, String nombre, int Ciudad_idCiudad) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     public int getId() {
         return id;
     }

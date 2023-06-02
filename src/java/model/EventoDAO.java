@@ -65,7 +65,7 @@ public class EventoDAO {
         List<Evento> eventos = new ArrayList<>();
 
         try {
-            stmt = connecting.prepareStatement("SELECT idEvento, nombre, fechaInicio, horaInicio, fechaFin, horaFin, descripcion, costo, estado, Empleado_idEmpleado, Lugar_idLugar FROM Evento");
+            stmt = connecting.prepareStatement("SELECT idEvento, nombre, fechaInicio, horaInicio, fechaFin, horaFin, descripcion, costo, estado FROM Evento");
             rs = stmt.executeQuery();
 
             while (rs.next()) {

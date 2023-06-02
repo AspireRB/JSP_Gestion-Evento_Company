@@ -55,7 +55,7 @@ if (session.getAttribute("usuario") != null){
 
             <!-- Recent Sales Start -->
             <div class="container-fluid pt-4 px-4">
-                <div class="bg-light text-center rounded p-4">
+                <div class="bg-light text-center rounded p-4" action="../../EventoController?accion=buscar&idEvento=${evento.id}">
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <h1 class="mb-0">Evento</h6>
                     </div>
@@ -98,8 +98,7 @@ if (session.getAttribute("usuario") != null){
                         </div>
                         <div class="col-sm-12 col-xl-6">
                             <div class="bg-light rounded h-100 p-4" >
-                                <div class="alert alert-secondary" role="alert">
-                                    Nombre del evento
+                                <div type="text" class="alert alert-secondary" role="alert" name="nombre" value="${evento.nombre}">
                                 </div>
                                 <div class="alert alert-secondary" role="alert">
                                     Fecha de inicio para el evento
@@ -142,12 +141,12 @@ if (session.getAttribute("usuario") != null){
                                 </div>
                                 <div class="bg-light rounded p-3">
                                     <div class="m-n2">
-                                        <a class="btn btn-primary w-100" href="Conferencias.jsp">Conferencias</a>
+                                        <a class="btn btn-primary w-100" href="../../ConferenciaController">Conferencias</a>
                                     </div>
                                 </div>
                                 <div class="bg-light rounded p-3">
                                     <div class="m-n2">
-                                        <a class="btn btn-primary w-100" href="Salones.jsp">Salones</a>
+                                        <a class="btn btn-primary w-100" href="../../SalonController">Salones</a>
                                     </div>
                                 </div>
                                 <div class="bg-light rounded p-3">

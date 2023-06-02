@@ -76,8 +76,8 @@ public class EventoController extends HttpServlet {
         int con = Integer.parseInt(request.getParameter("idEvento"));
         Evento evento = new EventoDAO().buscar(new Evento(con));
         HttpSession session = request.getSession();
-        session.setAttribute("evento", evento);
-        response.sendRedirect("templates/company/modificarEvento.jsp");
+        session.setAttribute("buscarEvento", evento);
+        response.sendRedirect("templates/company/visualizarEvento.jsp");
     }
     
     @Override
@@ -118,6 +118,8 @@ public class EventoController extends HttpServlet {
             String descripcion = request.getParameter("descripcion");
             Double costo = Double.parseDouble(request.getParameter("costo"));
             String estado = request.getParameter("estado");
+            int idLugar = Integer.parseInt(request.getParameter("Lugar_idLugar"));
+            int idEmpleado = Integer.parseInt(request.getParameter("Empleado_idEmpleado"));
             
             Evento evento = new Evento();
             evento.setNombre(nombre);
@@ -128,6 +130,8 @@ public class EventoController extends HttpServlet {
             evento.setDescripcion(descripcion);
             evento.setCosto(costo);
             evento.setEstado(estado);
+            evento.setIdEmpleado(idEmpleado);
+            evento.setIdLugar(idLugar);            
             
             Evento evento1 = new Evento();
             evento1.setNombre(nombre);
@@ -138,6 +142,8 @@ public class EventoController extends HttpServlet {
             evento1.setDescripcion(descripcion);
             evento1.setCosto(costo);
             evento1.setEstado(estado);
+            evento1.setIdEmpleado(idEmpleado);
+            evento1.setIdLugar(idLugar);            
             
             EventoDAO eventoDAO = new EventoDAO();
             boolean eventoExistente = eventoDAO.buscarEvento(evento1);

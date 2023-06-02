@@ -59,33 +59,33 @@ if (session.getAttribute("usuario") != null){
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <h1 class="mb-0">Crear salon</h6>
                     </div>
-                    <div class="row g-4">
-                        <div class="col-sm-12 col-xl-6">
-                            <div class="bg-light rounded h-100 p-4" >
-                                <form>
+                    <form action="../../SalonController?accion=insertar" method="POST" class="was-validated">
+                        <div class="row g-4">
+                            <div class="col-sm-12 col-xl-6">
+                                <div class="bg-light rounded h-100 p-4" >
                                     <div class="form-floating mb-3">
-                                        <input type="nombre" class="form-control" id="floatingInput"
-                                            placeholder="">
+                                        <input type="text" class="form-control" id="inputnombre" name="nombre" pattern="[A-Za-z\s]+" title="Ingrese solo letras" required>
                                         <label for="floatingInput">Nombre</label>
                                     </div>                             
                                     <div class="form-floating mb-3">
-                                        <input type="nombre" class="form-control" id="floatingInput"
+                                        <input type="text" class="form-control" id="inputcapacidad" name="capacidad" inputmode="numeric" title="Ingrese dígitos numéricos" required
                                             placeholder="">
                                         <label for="floatingInput">Capacidad</label>
-                                    </div>                                   
-                                </form>
-                            </div>                     
-                        </div>
-                        <div class="col-sm-12 col-xl-6">
-                            <div class="bg-light rounded h-100 p-4" >
-                                <div class="bg-light rounded h-100 p-5">
-                                    <div class="m-n2">
-                                        <a class="btn btn-lg btn-primary w-100" href="Salones.jsp">Crear</a>
+                                    </div>  
+                                </div>                     
+                            </div>
+                            <div class="col-sm-12 col-xl-6">
+                                <div class="bg-light rounded h-100 p-4" >
+                                    <div class="bg-light rounded h-100 p-5">
+                                        <div class="m-n2">
+                                            <button type="submit" class="btn btn-lg btn-primary w-100">Crear</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>                        
-                    </div>
+                            </div>                        
+                        </div>
+                    </form>
+                        
                 </div>
             </div>
             <!-- Recent Sales End -->

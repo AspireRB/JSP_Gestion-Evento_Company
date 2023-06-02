@@ -1,7 +1,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%
 if (session.getAttribute("usuario") != null){
 %>
+<%@page import="java.util.List"%>
+<%@page import="domain.Evento"%>
+<%@page import="model.EventoDAO"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,57 +74,21 @@ if (session.getAttribute("usuario") != null){
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Fecha inicio</th>
                                     <th scope="col">Fecha fin</th>
-                                    <th scope="col">Ciudad</th>
                                     <th scope="col">Estado</th>
                                     <th scope="col">Accion</th>
                                 </tr>
                             </thead>
                             <tbody>
+                            <c:forEach items="${listaEvento}" var="evento">
                                 <tr>
-                                    <td>1</td>
-                                    <td>Feria informatica</td>
-                                    <td>01 Jun 2023</td>
-                                    <td>05 Jun 2023</td>
-                                    <td>Bogota</td>
-                                    <td>Por iniciar</td> 
+                                    <td>${evento.id}</td>
+                                    <td>${evento.nombre}</td>
+                                    <td>${evento.fechaInicio}</td>
+                                    <td>${evento.fechaFin}</td>
+                                    <td>${evento.estado}</td>
                                     <td><a class="btn btn-primary rounded-pill m-2" href="visualizarEvento.jsp">Visualizar</a></td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Feria del libro</td>
-                                    <td>09 Jun 2023</td>
-                                    <td>16 Jun 2023</td>
-                                    <td>Bogota</td>
-                                    <td>Por iniciar</td> 
-                                    <td><a class="btn btn-primary rounded-pill m-2" href="visualizarEvento.jsp">Visualizar</a></td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Feria de las dos ruedas</td>
-                                    <td>20 Jun 2023</td>
-                                    <td>18 Jun 2023</td>
-                                    <td>Bogota</td>
-                                    <td>Por iniciar</td> 
-                                    <td><a class="btn btn-primary rounded-pill m-2" href="visualizarEvento.jsp">Visualizar</a></td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Feria de gastronomia</td>
-                                    <td>01 Jul 2023</td>
-                                    <td>08 Jul 2023</td>
-                                    <td>Medellin</td>
-                                    <td>Por iniciar</td> 
-                                    <td><a class="btn btn-primary rounded-pill m-2" href="visualizarEvento.jsp">Visualizar</a></td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Feria de negocios internacionales</td>
-                                    <td>14 Jul 2023</td>
-                                    <td>22 Jul 2023</td>
-                                    <td>Medellin</td>
-                                    <td>Por iniciar</td> 
-                                    <td><a class="btn btn-primary rounded-pill m-2" href="visualizarEvento.jsp">Visualizar</a></td>
-                                </tr>
+                            </c:forEach>
                             </tbody>
                         </table>
                     </div>

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
 if (session.getAttribute("usuario") != null){
@@ -62,37 +63,35 @@ if (session.getAttribute("usuario") != null){
                     <div class="row g-4">
                         <div class="col-sm-12 col-xl-6">
                             <div class="bg-light rounded h-100 p-4" >
-                                <form>
+                                <form action="../../EventoController?accion=insertar" method="POST" class="was-validated"  >
                                     <div class="form-floating mb-3">
-                                        <input type="nombre" class="form-control" id="floatingInput"
-                                            placeholder="">
+                                        <input type="text" class="form-control" id="inputnombre" pattern="[A-Za-z\s]+" title="Ingrese solo letras" required>
                                         <label for="floatingInput">Nombre</label>
                                     </div>                             
                                     <div class="form-floating mb-3"> 
-                                        <input type="date" name="fecha" class="form-control" min="2023-03-25" max="2024-05-25"/>
+                                        <input type="date" name="fechaInicio" class="form-control" min="2023-03-25" max="2024-05-25" required/>
                                         <label for="floatingInput">Fecha incio</label>
                                     </div>
                                     <div class="form-floating mb-3"> 
-                                        <input type="time" name="hora" class="form-control" min="08:00" max="18:00" step="3600"/>
+                                        <input type="time" name="horaInicio" class="form-control" min="08:00" max="18:00" step="3600" required/>
                                         <label for="floatingInput">Hora incio</label>
                                     </div>
                                     <div class="form-floating mb-3"> 
-                                        <input type="date" name="fecha" class="form-control" min="2023-03-25" max="2024-05-25"/>
+                                        <input type="date" name="fechaFin" class="form-control" min="2023-03-25" max="2024-05-25" required/>
                                         <label for="floatingInput">Fecha fin</label>
                                     </div>
                                     <div class="form-floating mb-3"> 
-                                        <input type="time" name="hora" class="form-control" min="08:00" max="18:00" step="3600"/>
+                                        <input type="time" name="horaFin" class="form-control" min="08:00" max="18:00" step="3600" required/>
                                         <label for="floatingInput">Hora fin</label>
                                     </div>                                    
                                     <div class="form-floating mb-3">
-                                        <select class="form-select" id="floatingSelect"
-                                            aria-label="Floating label select example">
-                                            <option selected></option>
-                                            <option value="1">Corferias</option>
-                                            <option value="2">Mercenar</option>
-                                            <option value="3">Guatiaca</option>
+                                        <select class="form-select" id="floatingSelect" name="lugar"
+                                            aria-label="Floating label select example" requiered>
+                                            <c:forEach items="${listaLugar}" var="lugar">
+                                                <option value="${lugar.idLugar}">${lugar.nombre}</option>
+                                            </c:forEach>                                            
                                         </select>
-                                        <label for="floatingSelect">Lugar</label>
+                                        <label for="floatingSelect">Selecciona Lugar</label>
                                     </div>                                    
                                 </form>
                             </div>                     
@@ -100,18 +99,16 @@ if (session.getAttribute("usuario") != null){
                         <div class="col-sm-12 col-xl-6">
                             <div class="bg-light rounded h-100 p-4" >                                                                   
                                 <div class="form-floating mb-3">
-                                    <textarea class="form-control" placeholder=""
-                                        id="floatingInput" style="height: 150px;"></textarea>
+                                    <textarea class="form-control" id="descripcion" name="descripcion" requiered style="height: 150px;"></textarea>
                                     <label for="floatingTextarea">Descripción</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <input type="costo" class="form-control" id="floatingInput"
-                                        placeholder="">
+                                    <input type="text" class="form-control" id="inputcosto" name="nombre" pattern="[0-9]{10}" inputmode="numeric" title="Ingrese dígitos numéricos" required>
                                     <label for="floatingInput">Costo</label>
                                 </div>
                                 <div class="form-floating mb-3">
-                                    <select class="form-select" id="floatingSelect"
-                                        aria-label="Floating label select example">
+                                    <select class="form-select" id="floatingSelect" name="estado"
+                                        aria-label="Floating label select example" requiered>
                                         <option selected></option>
                                         <option value="1">Por iniciar</option>
                                         <option value="2">En curso</option>

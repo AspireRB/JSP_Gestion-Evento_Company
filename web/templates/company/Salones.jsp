@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
 if (session.getAttribute("usuario") != null){
@@ -74,46 +75,16 @@ if (session.getAttribute("usuario") != null){
                                 </tr>
                             </thead>
                             <tbody>
+                            <c:forEach items="${listaSalon}" var="salon">
                                 <tr>
-                                    <td>1</td>
-                                    <td>Feria informatica</td>
-                                    <td>48</td> 
+                                    <td>${salon.id}</td>
+                                    <td>${salon.nombre}</td>
+                                    <td>${salon.capacidad}</td>
                                     <td><a class="btn btn-primary rounded-pill m-2" href="modificarSalon.jsp">Modificar</a>
                                         <a class="btn btn-danger rounded-pill m-2" href="Salones.jsp">Eliminar</a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Feria del libro</td>
-                                    <td>48</td> 
-                                    <td><a class="btn btn-primary rounded-pill m-2" href="modificarSalon.jsp">Modificar</a>
-                                        <a class="btn btn-danger rounded-pill m-2" href="Salones.jsp">Eliminar</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Feria de las dos ruedas</td>
-                                    <td>48</td> 
-                                    <td><a class="btn btn-primary rounded-pill m-2" href="modificarSalon.jsp">Modificar</a>
-                                        <a class="btn btn-danger rounded-pill m-2" href="Salones.jsp">Eliminar</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Feria de gastronomia</td>
-                                    <td>48</td> 
-                                    <td><a class="btn btn-primary rounded-pill m-2" href="modificarSalon.jsp">Modificar</a>
-                                        <a class="btn btn-danger rounded-pill m-2" href="Salones.jsp">Eliminar</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Feria de negocios internacionales</td>
-                                    <td>48</td>
-                                    <td><a class="btn btn-primary rounded-pill m-2" href="modificarSalon.jsp">Modificar</a>
-                                        <a class="btn btn-danger rounded-pill m-2" href="Salones.jsp">Eliminar</a>
-                                    </td>
-                                </tr>
+                            </c:forEach>                                
                             </tbody>
                         </table>
                     </div>
