@@ -1,4 +1,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
+<%
+if (session.getAttribute("usuario") != null){
+%>
+<%@page import="java.util.List"%>
+<%@page import="domain.Conferencista"%>
+<%@page import="model.ConferencistaDaoJDBC"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,69 +77,26 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                     <c:forEach items="${listaconferencista}" var="conferencista">
                                         <tr>
-                                            <td>Juan</td>
-                                            <td>Lopez</td>
-                                            <td>Jlopez@gmail.com</td>
-                                            <td>1005715101</td>                                    
-                                             <td><a class="btn btn-primary rounded-pill m-2" href="modificarConferencista.jsp">Modificar</a>
-                                                <a class="btn btn-danger rounded-pill m-2" href="">Eliminar</a>
-                                            </td>
+                                            <td>${conferencista.nombre}</td>
+                                            <td>${conferencista.apellido}</td>
+                                            <td>${conferencista.correo}</td>
+                                            <td>${conferencista.cedula}</td>
 
-                                        </tr>
-                                        <tr>
-                                            <td>Paula</td>
-                                            <td>Arango</td>
-                                            <td>Parango@gmail.com</td>
-                                            <td>1014567892</td>                                    
-                                            <td><a class="btn btn-primary rounded-pill m-2" href="">Modificar</a>
-                                                <a class="btn btn-danger rounded-pill m-2" href="">Eliminar</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Andres</td>
-                                            <td>Castro</td>
-                                            <td>Candres@gmail.com</td>
-                                            <td>1023654897</td>                                    
-                                          <td><a class="btn btn-primary rounded-pill m-2" href="">Modificar</a>
-                                                <a class="btn btn-danger rounded-pill m-2" href="">Eliminar</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Luis</td>
-                                            <td>Hernandez</td>
-                                            <td>Hluis@gmail.com</td>
-                                            <td>1478529636</td>                                    
-                                            <td><a class="btn btn-primary rounded-pill m-2" href="">Modificar</a>
-                                                <a class="btn btn-danger rounded-pill m-2" href="">Eliminar</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Laura</td>
-                                            <td>Devia</td>
-                                            <td>Ldevia@gmail.com</td>
-                                            <td>1963258741</td>                                    
-                                          <td><a class="btn btn-primary rounded-pill m-2" href="">Modificar</a>
-                                                <a class="btn btn-danger rounded-pill m-2" href="">Eliminar</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Martin</td>
-                                            <td>Ramirez</td>
-                                            <td>Mramirez@gmail.com</td>
-                                            <td>1025874693</td>                                    
-                                            <td><a class="btn btn-primary rounded-pill m-2" href="">Modificar</a>
-                                                <a class="btn btn-danger rounded-pill m-2" href="">Eliminar</a>
-                                            </td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
+                                                <td>
+                                                    <a class="btn btn-primary rounded-pill m-2" name="editar" href="../../ConferencistaController?accion=editar&idConferencista=${conferencista.id}">Modificar</a>
+                                                    <a class="btn btn-danger rounded-pill m-2" name="eliminar" href="../../ConferencistaController?accion=eliminar&idConferencista=${conferencista.id}">Eliminar</a>
+                                                </td>
+                                            </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Footer Start -->
+                <!-- Footer Start -->
                 <jsp:include page="includes/footer.jsp"></jsp:include>
                 <!-- Footer End -->
             </div>
@@ -159,3 +123,8 @@
     </body>
 
 </html>
+<%
+}else{
+    response.sendRedirect("ingresar.jsp");
+}
+%>

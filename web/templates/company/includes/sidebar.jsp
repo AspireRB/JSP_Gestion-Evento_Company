@@ -10,7 +10,7 @@
                 <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
             </div>
             <div class="ms-3">
-                <h6 class="mb-0">Jhon Doe</h6>
+                <h6 class="mb-0">${usuario.nombre} ${usuario.apellido}</h6>
                 <span>Admin</span>
             </div>
         </div>
@@ -23,7 +23,7 @@
                     <a href="Eventos.jsp" class="dropdown-item">Consultar</a>
                 </div>
             </div>
-             <a href="Conferencistas.jsp" class="nav-item nav-link"><i class="fas fa-user-plus me-2"></i>Conferencistas</a>
+             <a href="../../ConferencistaController" class="nav-item nav-link"><i class="fas fa-user-plus me-2"></i>Conferencistas</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="bi bi-kanban-fill"></i>Gestion</a>
                 <div class="dropdown-menu bg-transparent border-0">

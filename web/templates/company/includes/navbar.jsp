@@ -14,12 +14,12 @@
         <div class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                 <img class="rounded-circle me-lg-2" src="../../static/img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                <span class="d-none d-lg-inline-flex">Admin</span>
+                <span class="d-none d-lg-inline-flex">${usuario.correo}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                 <a href="#" class="dropdown-item">Mi perfil</a>
                 <a href="#" class="dropdown-item">Configuración</a>
-                <a href="#" class="dropdown-item">Cerrar sesión</a>
+                <a href="../../SesionController?accion=cerrar" class="dropdown-item">Cerrar sesión</a>
             </div>
         </div>
     </div>

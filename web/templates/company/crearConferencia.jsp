@@ -1,4 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+if (session.getAttribute("usuario") != null){
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -161,3 +164,8 @@
 </body>
 
 </html>
+<%
+}else{
+    response.sendRedirect("ingresar.jsp");
+}
+%>

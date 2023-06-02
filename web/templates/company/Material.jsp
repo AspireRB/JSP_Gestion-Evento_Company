@@ -1,4 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
+
+<%
+if (session.getAttribute("usuario") != null){
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -55,63 +60,44 @@
                         <div class="bg-light text-center rounded p-4" style="max-height: 400px; overflow-y: scroll;">
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <h6 class="mb-0">Material Conferencia</h6>
-                                <a class="btn btn-success m-2" href="crearMaterial.jsp">NUEVO MATERIAL</a>
+                                <a class="btn btn-success m-2" href="../../MaterialController?accion=nuevo">NUEVO MATERIAL</a>
                             </div>
                             <div class="table-responsive">
                                 <table class="table text-start align-middle table-bordered table-hover mb-0">
                                     <thead>
                                         <tr class="text-dark">                                    
-                                            <th scope="col">Codigo</th>
+                                            <th scope="col">Código</th>
                                             <th scope="col">Nombre</th>
                                             <th scope="col">Descripción</th>
-                                            <th scope="col">Modificar</th> 
-
+                                            <th scope="col">Material</th>
+                                            <th scope="col">Acción</th> 
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <c:forEach items="${listaMaterial}" var="material">
                                         <tr>
-                                            <td>1</td>
-                                            <td>Fisica</td>
-                                            <td>Fisica mecanica</td>                                                                        
-                                            <td><a class="btn btn-primary rounded-pill m-2" href="modificarMaterial.jsp">Modificar</a>
-                                                <a class="btn btn-danger rounded-pill m-2" href="">Eliminar</a>
+                                            <td>${material.idMaterial}</td>
+                                            <td>${material.nombre}</td>
+                                            <td>${material.descripcion}</td>
+                                            <td>${material.rutaArchivo}</td>
+                                            
+                                            <td>
+                                                <a class="btn btn-primary rounded-pill m-2" name="editar" href="../../ConferencistaController?accion=editar&amp;idConferencista=${conferencista.id}">Modificar</a>
+                                                <a class="btn btn-danger rounded-pill m-2" name="eliminar" href="../../ConferencistaController?accion=eliminar&amp;idConferencista=${conferencista.id}">Eliminar</a>
                                             </td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
 
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Arquitectura</td>
-                                            <td>Requerimientos</td>
-                                            <td><a class="btn btn-primary rounded-pill m-2" href="">Modificar</a>
-                                                <a class="btn btn-danger rounded-pill m-2" href="">Eliminar</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Matematicas</td>
-                                            <td>Derivadas</td>
-                                            <td><a class="btn btn-primary rounded-pill m-2" href="">Modificar</a>
-                                                <a class="btn btn-danger rounded-pill m-2" href="">Eliminar</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Programación</td>
-                                            <td>Tipos de datos</td>
-                                            <td><a class="btn btn-primary rounded-pill m-2" href="">Modificar</a>
-                                                <a class="btn btn-danger rounded-pill m-2" href="">Eliminar</a>
-                                            </td>
-                                        </tr>                                  
 
-                                    </tbody>
-                                </table>
-                            </div>
                         </div>
                     </div>
+                </div>
 
 
 
-                    <!-- Footer Start -->
+                <!-- Footer Start -->
                 <jsp:include page="includes/footer.jsp"></jsp:include>
                 <!-- Footer End -->
             </div>
@@ -138,3 +124,8 @@
     </body>
 
 </html>
+<%
+}else{
+    response.sendRedirect("ingresar.jsp");
+}
+%>

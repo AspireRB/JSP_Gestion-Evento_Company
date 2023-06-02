@@ -6,45 +6,30 @@ package domain;
 
 /**
  *
- * @author DANIELA
+ * @author Juan Guevara
  */
-public class Conferencista {
-       int id; 
-       long cedula;
-       String nombre;
-       String apellido;
-       String correo;
-       long telefono;
+public class Empleado {
+    private int id;
+    private long cedula;
+    private String nombre;
+    private String apellido;
+    private long telefono;
 
-    public Conferencista() {
-    }
-       
-
-    public Conferencista(int id, long cedula, String nombre, String apellido, String correo, long telefono) {
+    public Empleado(int id, long cedula, String nombre, String apellido, long telefono, String correo, String contrasenia) {
         this.id = id;
+        this.cedula = cedula;
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.correo = correo;
         this.telefono = telefono;
-    }
-
-    public Conferencista(long cedula, String nombre, String apellido, String correo) {
-        this.cedula = cedula;
-        this.nombre = nombre;
-        this.apellido = apellido;
         this.correo = correo;
-        this.telefono = telefono;
+        this.contrasenia = contrasenia;
     }
 
-    public Conferencista(int id) {
-        this.id = id;
+    @Override
+    public String toString() {
+        return "Usuario{" + "id=" + id + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", telefono=" + telefono + ", correo=" + correo + ", contrasenia=" + contrasenia + '}';
     }
-
-    public Conferencista(long cedula) {
-        this.cedula = cedula;
-    }
-    
 
     public int getId() {
         return id;
@@ -78,6 +63,21 @@ public class Conferencista {
         this.apellido = apellido;
     }
 
+    public long getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(long telefono) {
+        this.telefono = telefono;
+    }
+    private String correo;
+    private String contrasenia;
+
+    public Empleado(String usuario, String contrasenia) {
+        this.correo = usuario;
+        this.contrasenia = contrasenia;
+    }
+
     public String getCorreo() {
         return correo;
     }
@@ -86,14 +86,11 @@ public class Conferencista {
         this.correo = correo;
     }
 
-    public long getTelefono() {
-        return telefono;
+    public String getContrasenia() {
+        return contrasenia;
     }
 
-    public void setTelefono(long telefono) {
-        this.telefono = telefono;
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
     }
-       
-       
-    
 }

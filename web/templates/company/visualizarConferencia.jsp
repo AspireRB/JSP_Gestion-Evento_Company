@@ -1,4 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+if (session.getAttribute("usuario") != null){
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -94,7 +97,7 @@
                                 </div>
                                 <div class="bg-light rounded p-3">
                                     <div class="m-n2">
-                                        <a class="btn btn-primary w-100" href="Material.jsp">Material conferencia</a>
+                                        <a class="btn btn-primary w-100" href="../../MaterialController">Material conferencia</a>
                                     </div>
                                 </div>
                                 <div class="bg-light rounded p-3">
@@ -136,3 +139,8 @@
 </body>
 
 </html>
+<%
+}else{
+    response.sendRedirect("ingresar.jsp");
+}
+%>
