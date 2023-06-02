@@ -8,6 +8,7 @@ import domain.Conferencia;
 import domain.Conferencista;
 import domain.Empleado;
 import domain.Evento;
+import domain.Salon;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -19,10 +20,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.ConferenciaDAO;
 import model.ConferencistaDaoJDBC;
 import model.EmpleadoDAO;
 import model.EventoDAO;
+import model.SalonDAO;
 
 @WebServlet(name = "ConferenciaController", urlPatterns = {"/ConferenciaController"})
 public class ConferenciaController extends HttpServlet {
@@ -67,25 +71,25 @@ public class ConferenciaController extends HttpServlet {
             throws ServletException, IOException {
         List<Salon> salon = new SalonDAO().listar();
         HttpSession sesion = request.getSession();
-        sesion.setAttribute("listaEvento", salon);
+        sesion.setAttribute("listaSalon", salon);
         response.sendRedirect("templates/company/Salones.jsp");
     } 
     
-     private void listaConferencista (HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        List<Conferencista> conferencista = new ConferencistaDaoJDBC().listarConferencista();
-        HttpSession sesion = request.getSession();
-        sesion.setAttribute("listaEvento", conferencista);
-        response.sendRedirect("templates/company/Conferencistas.jsp");
-    }
+//     private void listaConferencista (HttpServletRequest request, HttpServletResponse response)
+//            throws ServletException, IOException {
+//        List<Conferencista> conferencista = new ConferencistaDaoJDBC().listarConferencista();
+//        HttpSession sesion = request.getSession();
+//        sesion.setAttribute("listaConferencista", conferencista);
+//        response.sendRedirect("templates/company/Conferencistas.jsp");
+//    }
     
-    private void listaEmpleado (HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        List<Empleado> empleado = new EmpleadoDAO().listarEmpleado();
-        HttpSession sesion = request.getSession();
-        sesion.setAttribute("listaEvento", empleado);
-        response.sendRedirect("templates/company/Empleados.jsp");
-    } 
+//    private void listaEmpleado (HttpServletRequest request, HttpServletResponse response)
+//            throws ServletException, IOException {
+//        List<Empleado> empleado = new EmpleadoDAO().listarEmpleado();
+//        HttpSession sesion = request.getSession();
+//        sesion.setAttribute("listaEmpleado", empleado);
+//        response.sendRedirect("templates/company/Empleados.jsp");
+//    } 
     
     private void buscarConferencia(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -117,67 +121,75 @@ public class ConferenciaController extends HttpServlet {
     }
     
     private void insertarConferencia (HttpServletRequest request, HttpServletResponse response) 
-            throws ServletException, IOException, ParseException { 
-        SimpleDateFormat formatter_date = new SimpleDateFormat("yyyy-mm-dd");
-        SimpleDateFormat formatter_time = new SimpleDateFormat("hh:mm:ss");
-        
-        String nombre = request.getParameter("nombre");
-        String fechaI = request.getParameter("fecha");
-        Date fecha = formatter_date.parse(fechaI);
-        String horaI = request.getParameter("horaInicio");
-        Date horaInicio = formatter_time.parse(horaI);
-        String horaF = request.getParameter("horaFin");
-        Date horaFin = formatter_date.parse(horaF);
-        
-        Conferencia conferencia = new Conferencia();
-        conferencia.setNombre(nombre);
-        conferencia.setFecha(fecha);
-        conferencia.setHoraInicio(horaInicio);
-        conferencia.setHoraFin(horaFin);
-        
-        Conferencia conferencia1 = new Conferencia();
-        conferencia1.setNombre(nombre);
-        conferencia1.setFecha(fecha);
-        conferencia1.setHoraInicio(horaInicio);
-        conferencia1.setHoraFin(horaFin);
-                 
-        ConferenciaDAO conferenciaDAO = new ConferenciaDAO();
-        boolean conferenciaExistente = conferenciaDAO.buscarConferencia(conferencia1);
-
-        if (conferenciaExistente) {
-            System.out.println("Ya existe");
-            String mensajeError = "Ya existe un conferencista con esa cedula o correo";
-            response.sendRedirect("templates/company/crearConferencia.jsp?mensajeError=" + mensajeError);
-        } else {
-            System.out.println("No existe");
-            ConferenciaDAO conferenciaDAO1 = new ConferenciaDAO();
-            conferenciaDAO1.insertar(conferencia);
-            this.listaConferencias(request, response);
+            throws ServletException, IOException { 
+        try {
+            SimpleDateFormat formatter_date = new SimpleDateFormat("yyyy-mm-dd");
+            SimpleDateFormat formatter_time = new SimpleDateFormat("hh:mm:ss");
+            
+            String nombre = request.getParameter("nombre");
+            String fechaI = request.getParameter("fecha");
+            Date fecha = formatter_date.parse(fechaI);
+            String horaI = request.getParameter("horaInicio");
+            Date horaInicio = formatter_time.parse(horaI);
+            String horaF = request.getParameter("horaFin");
+            Date horaFin = formatter_date.parse(horaF);
+            
+            Conferencia conferencia = new Conferencia();
+            conferencia.setNombre(nombre);
+            conferencia.setFecha(fecha);
+            conferencia.setHoraInicio(horaInicio);
+            conferencia.setHoraFin(horaFin);
+            
+            Conferencia conferencia1 = new Conferencia();
+            conferencia1.setNombre(nombre);
+            conferencia1.setFecha(fecha);
+            conferencia1.setHoraInicio(horaInicio);
+            conferencia1.setHoraFin(horaFin);
+            
+            ConferenciaDAO conferenciaDAO = new ConferenciaDAO();
+            boolean conferenciaExistente = conferenciaDAO.buscarConferencia(conferencia1);
+            
+            if (conferenciaExistente) {
+                System.out.println("Ya existe");
+                String mensajeError = "Ya existe un conferencista con esa cedula o correo";
+                response.sendRedirect("templates/company/crearConferencia.jsp?mensajeError=" + mensajeError);
+            } else {
+                System.out.println("No existe");
+                ConferenciaDAO conferenciaDAO1 = new ConferenciaDAO();
+                conferenciaDAO1.insertar(conferencia);
+                this.listaConferencias(request, response);
+            }
+        } catch (ParseException ex) {
+            Logger.getLogger(ConferenciaController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
     private void modificarConferencia(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ParseException {
-        SimpleDateFormat formatter_date = new SimpleDateFormat("yyyy-mm-dd");
-        SimpleDateFormat formatter_time = new SimpleDateFormat("hh:mm:ss");
-         
-        int id = Integer.parseInt(request.getParameter("idConferencia"));
-        String nombre = request.getParameter("nombre");
-        String fechaI = request.getParameter("fecha");
-        Date fecha = formatter_date.parse(fechaI);
-        String horaI = request.getParameter("horaInicio");
-        Date horaInicio = formatter_time.parse(horaI);
-        String horaF = request.getParameter("horaFin");
-        Date horaFin = formatter_date.parse(horaF);
-        int idEvento = Integer.parseInt(request.getParameter("Evento_idEvento"));
-        int idSalon = Integer.parseInt(request.getParameter("Salon_idSalon"));
-        int idConferencista = Integer.parseInt(request.getParameter("Conferencista_idConferencista"));
-        int idEmpleado = Integer.parseInt(request.getParameter("Empleado_idEmpleado"));
-                
-        Conferencia conferencia = new Conferencia(id, nombre, fecha, horaInicio, horaFin, idEvento, idSalon,idConferencista, idEmpleado);
-        ConferenciaDAO conferenciaDAO = new ConferenciaDAO();
-        conferenciaDAO.modificar(conferencia);
-        this.listaConferencias(request, response);
+            throws ServletException, IOException {
+        try {
+            SimpleDateFormat formatter_date = new SimpleDateFormat("yyyy-mm-dd");
+            SimpleDateFormat formatter_time = new SimpleDateFormat("hh:mm:ss");
+            
+            int id = Integer.parseInt(request.getParameter("idConferencia"));
+            String nombre = request.getParameter("nombre");
+            String fechaI = request.getParameter("fecha");
+            Date fecha = formatter_date.parse(fechaI);
+            String horaI = request.getParameter("horaInicio");
+            Date horaInicio = formatter_time.parse(horaI);
+            String horaF = request.getParameter("horaFin");
+            Date horaFin = formatter_date.parse(horaF);
+            int idEvento = Integer.parseInt(request.getParameter("Evento_idEvento"));
+            int idSalon = Integer.parseInt(request.getParameter("Salon_idSalon"));
+            int idConferencista = Integer.parseInt(request.getParameter("Conferencista_idConferencista"));
+            int idEmpleado = Integer.parseInt(request.getParameter("Empleado_idEmpleado"));
+            
+            Conferencia conferencia = new Conferencia(id, nombre, fecha, horaInicio, horaFin, idEvento, idSalon,idConferencista, idEmpleado);
+            ConferenciaDAO conferenciaDAO = new ConferenciaDAO();
+            conferenciaDAO.modificar(conferencia);
+            this.listaConferencias(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(ConferenciaController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
     

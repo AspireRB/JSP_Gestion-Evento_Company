@@ -4,7 +4,9 @@
  */
 package controller;
 
+import domain.Empleado;
 import domain.Evento;
+import domain.Lugar;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -16,7 +18,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.EmpleadoDAO;
 import model.EventoDAO;
+import model.LugarDAO;
 
 @WebServlet(name = "EventoController", urlPatterns = {"/EventoController"})
 public class EventoController extends HttpServlet {
@@ -49,14 +55,14 @@ public class EventoController extends HttpServlet {
         response.sendRedirect("templates/company/Eventos.jsp");
     }
     
-    private void listaEmpleado (HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        List<Empleado> empleado = new EmpleadoDAO().listarEmpleado();
-        HttpSession sesion = request.getSession();
-        sesion.setAttribute("listaEvento", empleado);
-        response.sendRedirect("templates/company/crearEvento.jsp");
-    }
-    
+//    private void listaEmpleado (HttpServletRequest request, HttpServletResponse response)
+//            throws ServletException, IOException {
+//        List<Empleado> empleado = new EmpleadoDAO().listarEmpleado();
+//        HttpSession sesion = request.getSession();
+//        sesion.setAttribute("listaEvento", empleado);
+//        response.sendRedirect("templates/company/crearEvento.jsp");
+//    }
+//    
     private void listaLugar (HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<Lugar> lugar = new LugarDAO().listar();
@@ -95,83 +101,91 @@ public class EventoController extends HttpServlet {
     }
     
     private void insertarEvento (HttpServletRequest request, HttpServletResponse response) 
-            throws ServletException, IOException, ParseException { 
-        SimpleDateFormat formatter_date = new SimpleDateFormat("yyyy-mm-dd");
-        SimpleDateFormat formatter_time = new SimpleDateFormat("hh:mm:ss");
-        
-        String nombre = request.getParameter("nombre");
-        String fechaI = request.getParameter("fechaInicio");
-        Date fechaInicio = formatter_date.parse(fechaI);
-        String horaI = request.getParameter("horaInicio");
-        Date horaInicio = formatter_time.parse(horaI);
-        String fechaF = request.getParameter("fechaFin");
-        Date fechaFin = formatter_date.parse(fechaF);
-        String horaF = request.getParameter("horaFin");
-        Date horaFin = formatter_date.parse(horaF);
-        String descripcion = request.getParameter("descripcion");
-        Double costo = Double.parseDouble(request.getParameter("costo"));
-        String estado = request.getParameter("estado");
-        
-        Evento evento = new Evento();
-        evento.setNombre(nombre);
-        evento.setFechaInicio(fechaInicio);
-        evento.setHoraInicio(horaInicio);
-        evento.setFechaFin(fechaFin);
-        evento.setHoraFin(horaFin);
-        evento.setDescripcion(descripcion);
-        evento.setCosto(costo);
-        evento.setEstado(estado);
-        
-        Evento evento1 = new Evento();
-        evento1.setNombre(nombre);
-        evento1.setFechaInicio(fechaInicio);
-        evento1.setHoraInicio(horaInicio);
-        evento1.setFechaFin(fechaFin);
-        evento1.setHoraFin(horaFin);
-        evento1.setDescripcion(descripcion);
-        evento1.setCosto(costo);
-        evento1.setEstado(estado);  
-        
-        EventoDAO eventoDAO = new EventoDAO();
-        boolean eventoExistente = eventoDAO.buscarEvento(evento1);
-
-        if (eventoExistente) {
-            System.out.println("Ya existe");
-            String mensajeError = "Ya existe un conferencista con esa cedula o correo";
-            response.sendRedirect("templates/company/crearEvento.jsp?mensajeError=" + mensajeError);
-        } else {
-            System.out.println("No existe");
-            EventoDAO eventoDAO1 = new EventoDAO();
-            eventoDAO1.insertar(evento);
-            this.listaEventos(request, response);
+            throws ServletException, IOException { 
+        try {
+            SimpleDateFormat formatter_date = new SimpleDateFormat("yyyy-mm-dd");
+            SimpleDateFormat formatter_time = new SimpleDateFormat("hh:mm:ss");
+            
+            String nombre = request.getParameter("nombre");
+            String fechaI = request.getParameter("fechaInicio");
+            Date fechaInicio = formatter_date.parse(fechaI);
+            String horaI = request.getParameter("horaInicio");
+            Date horaInicio = formatter_time.parse(horaI);
+            String fechaF = request.getParameter("fechaFin");
+            Date fechaFin = formatter_date.parse(fechaF);
+            String horaF = request.getParameter("horaFin");
+            Date horaFin = formatter_date.parse(horaF);
+            String descripcion = request.getParameter("descripcion");
+            Double costo = Double.parseDouble(request.getParameter("costo"));
+            String estado = request.getParameter("estado");
+            
+            Evento evento = new Evento();
+            evento.setNombre(nombre);
+            evento.setFechaInicio(fechaInicio);
+            evento.setHoraInicio(horaInicio);
+            evento.setFechaFin(fechaFin);
+            evento.setHoraFin(horaFin);
+            evento.setDescripcion(descripcion);
+            evento.setCosto(costo);
+            evento.setEstado(estado);
+            
+            Evento evento1 = new Evento();
+            evento1.setNombre(nombre);
+            evento1.setFechaInicio(fechaInicio);
+            evento1.setHoraInicio(horaInicio);
+            evento1.setFechaFin(fechaFin);
+            evento1.setHoraFin(horaFin);
+            evento1.setDescripcion(descripcion);
+            evento1.setCosto(costo);
+            evento1.setEstado(estado);
+            
+            EventoDAO eventoDAO = new EventoDAO();
+            boolean eventoExistente = eventoDAO.buscarEvento(evento1);
+            
+            if (eventoExistente) {
+                System.out.println("Ya existe");
+                String mensajeError = "Ya existe un conferencista con esa cedula o correo";
+                response.sendRedirect("templates/company/crearEvento.jsp?mensajeError=" + mensajeError);
+            } else {
+                System.out.println("No existe");
+                EventoDAO eventoDAO1 = new EventoDAO();
+                eventoDAO1.insertar(evento);
+                this.listaEventos(request, response);
+            }
+        } catch (ParseException ex) {
+            Logger.getLogger(EventoController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
     private void modificarEvento(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ParseException {
-        SimpleDateFormat formatter_date = new SimpleDateFormat("yyyy-mm-dd");
-        SimpleDateFormat formatter_time = new SimpleDateFormat("hh:mm:ss");
-         
-        int id = Integer.parseInt(request.getParameter("idEvento"));
-        String nombre = request.getParameter("nombre");
-        String fechaI = request.getParameter("fechaInicio");
-        Date fechaInicio = formatter_date.parse(fechaI);
-        String horaI = request.getParameter("horaInicio");
-        Date horaInicio = formatter_time.parse(horaI);
-        String fechaF = request.getParameter("fechaFin");
-        Date fechaFin = formatter_date.parse(fechaF);
-        String horaF = request.getParameter("horaFin");
-        Date horaFin = formatter_date.parse(horaF);
-        String descripcion = request.getParameter("descripcion");
-        Double costo = Double.parseDouble(request.getParameter("costo"));
-        String estado = request.getParameter("estado");
-        int idEmpleado = Integer.parseInt(request.getParameter("Empleado_idEmpleado"));
-        int idLugar = Integer.parseInt(request.getParameter("Lugar_idLugar"));
-        
-        Evento evento = new Evento(id, nombre, fechaInicio, horaInicio, fechaFin, horaFin, descripcion, costo, estado, idEmpleado, idLugar);
-        EventoDAO eventoDAO = new EventoDAO();
-        eventoDAO.modificar(evento);
-        this.listaEventos(request, response);
+            throws ServletException, IOException {
+        try {
+            SimpleDateFormat formatter_date = new SimpleDateFormat("yyyy-mm-dd");
+            SimpleDateFormat formatter_time = new SimpleDateFormat("hh:mm:ss");
+            
+            int id = Integer.parseInt(request.getParameter("idEvento"));
+            String nombre = request.getParameter("nombre");
+            String fechaI = request.getParameter("fechaInicio");
+            Date fechaInicio = formatter_date.parse(fechaI);
+            String horaI = request.getParameter("horaInicio");
+            Date horaInicio = formatter_time.parse(horaI);
+            String fechaF = request.getParameter("fechaFin");
+            Date fechaFin = formatter_date.parse(fechaF);
+            String horaF = request.getParameter("horaFin");
+            Date horaFin = formatter_date.parse(horaF);
+            String descripcion = request.getParameter("descripcion");
+            Double costo = Double.parseDouble(request.getParameter("costo"));
+            String estado = request.getParameter("estado");
+            int idEmpleado = Integer.parseInt(request.getParameter("Empleado_idEmpleado"));
+            int idLugar = Integer.parseInt(request.getParameter("Lugar_idLugar"));
+            
+            Evento evento = new Evento(id, nombre, fechaInicio, horaInicio, fechaFin, horaFin, descripcion, costo, estado, idEmpleado, idLugar);
+            EventoDAO eventoDAO = new EventoDAO();
+            eventoDAO.modificar(evento);
+            this.listaEventos(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(EventoController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
     
