@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
 <%@page import="java.util.List"%>
 <%@page import="domain.Conferencista"%>
 <%@page import="model.ConferencistaDaoJDBC"%>
@@ -73,27 +74,19 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <%
-                                        ConferencistaDaoJDBC dao = new ConferencistaDaoJDBC();
-                                        List<Conferencista> lisconferencista = dao.obtenerConferencistas();
+                                     <c:forEach items="${listaconferencista}" var="conferencista">
+                                        <tr>
+                                            <td>${conferencista.nombre}</td>
+                                            <td>${conferencista.apellido}</td>
+                                            <td>${conferencista.correo}</td>
+                                            <td>${conferencista.cedula}</td>
 
-                                        for(Conferencista conferencista : lisconferencista){                                       
-                                        
-                                    %>
-                                    <tr>
-                                        <td><%=conferencista.getNombre()%></td>
-                                        <td><%=conferencista.getApellido()%></td>
-                                        <td><%=conferencista.getCorreo()%></td>
-                                        <td><%=conferencista.getCedula()%></td>
-                                       <td>
-                                                    <a class="btn btn-primary rounded-pill m-2" href="modificarConferencista.jsp">Modificar</a>
-                                                    <a class="btn btn-danger rounded-pill m-2" href="">Eliminar</a>
-                                                </td>                                       
-                                    </tr>
-                                    <%
-                                        }
-                                    %>
-
+                                                <td>
+                                                    <a class="btn btn-primary rounded-pill m-2" name="editar" href="../../ConferencistaController?accion=editar&idConferencista=${conferencista.id}">Modificar</a>
+                                                    <a class="btn btn-danger rounded-pill m-2" name="eliminar" href="../../ConferencistaController?accion=eliminar&idConferencista=${conferencista.id}">Eliminar</a>
+                                                </td>
+                                            </tr>
+                                    </c:forEach>
                                 </tbody>
                             </table>
                         </div>

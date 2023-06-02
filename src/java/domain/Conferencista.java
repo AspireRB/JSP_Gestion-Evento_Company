@@ -37,6 +37,15 @@ public class Conferencista {
         this.telefono = telefono;
     }
 
+    public Conferencista(int id) {
+        this.id = id;
+    }
+
+    public Conferencista(long cedula) {
+        this.cedula = cedula;
+    }
+    
+
     public int getId() {
         return id;
     }

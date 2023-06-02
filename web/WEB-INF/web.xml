@@ -4,8 +4,24 @@
         <servlet-name>ConferenController</servlet-name>
         <servlet-class>controller.ConferenController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ConferencistaController</servlet-name>
+        <servlet-class>controller.ConferencistaController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MaterialController</servlet-name>
+        <servlet-class>controller.MaterialController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConferenController</servlet-name>
         <url-pattern>/ConferenController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConferencistaController</servlet-name>
+        <url-pattern>/ConferencistaController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MaterialController</servlet-name>
+        <url-pattern>/MaterialController</url-pattern>
     </servlet-mapping>
 </web-app>

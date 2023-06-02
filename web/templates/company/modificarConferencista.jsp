@@ -56,49 +56,41 @@
                             <div class="col-sm-12 col-xl-6">
                                 <div class="bg-light rounded h-100 p-4">
                                     <h6 class="mb-4">Conferencista</h6>
-                                    <form action="Controlador" method="GET" autocomplete="off">
-                                        <div class="mb-3">
-                                            <label for="exampleInputNombre" class="form-label">Nombre</label>
-                                            <input type="nombre" class="form-control" id="inputnombre">                                    
-                                        </div>
+                                    <form action="../../ConferencistaController?accion=modificar&idConferencista=${conferencista.id}" method="POST"  class="was-validated">                                        
+                                    <div class="mb-3">
+                                        <label for="exampleInputNombre" class="form-label">Nombre</label>
+                                         <input type="text" class="form-control" id="inputnombre" name="nombre" pattern="[A-Za-z\s]+" title="Ingrese solo letras" required value="${conferencista.nombre}">                                    
+                                    </div>
 
-                                        <div class="mb-3">
-                                            <label for="exampleInputApellido" class="form-label">Apellido</label>
-                                            <input type="apellido" class="form-control" id="inputapellido">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="exampleInputEmail" class="form-label">Correo electronico</label>
-                                            <input type="email" class="form-control" id="inputemail">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="exampleInputCedula" class="form-label">Cedula</label>
-                                            <input type="cedula" class="form-control" id="inputcedula">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="exampleInputTelefono" class="form-label">Telefono</label>
-                                            <input type="telefono" class="form-control" id="inputtelefono">
-                                        </div>
-                                        <div class="bg-light rounded p-3">
-                                            <div class="m-n2">
-                                                <a class="btn btn-lg btn-primary w-100" href="Eventos.jsp">Modificar</a>
-                                            </div>
-                                        </div>
-                                        <div class="bg-light rounded p-3">
-                                            <div class="m-n2">
-                                                <a class="btn btn-lg btn-danger w-100" href="Eventos.jsp">Cancelar</a>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputApellido" class="form-label">Apellido</label>
+                                      <input type="text" class="form-control" id="inputapellido" name="apellido" pattern="[A-Za-z\s]+" title="Ingrese solo letras" required value="${conferencista.apellido}">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail" class="form-label">Correo electronico</label>
+                                         <input type="email" class="form-control" id="email" name="correo" required value="${conferencista.correo}">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputCedula" class="form-label">Cedula</label>
+                                        <input type="text" class="form-control" id="inputcedula" name="cedula" pattern="[0-9]{1,10}" inputmode="numeric" title="Ingrese de 1 a 10 dígitos numéricos" required value="${conferencista.cedula}">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputTelefono" class="form-label">Telefono</label>
+                                       <input type="text" class="form-control" id="inputtelefono" name="telefono" pattern="[0-9]{10}" inputmode="numeric" title="Ingrese 10 dígitos numéricos" required value="${conferencista.telefono}">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary m-2"><i class="fas fa-check"></i>Actualizar</button>
+
+                                </form>
                             </div>
                         </div>
-
-
-
                     </div>
-                    <!-- Form End -->
 
-                    <!-- Footer Start -->
+
+
+                </div>
+                <!-- Form End -->
+
+                <!-- Footer Start -->
                 <jsp:include page="includes/footer.jsp"></jsp:include>
                 <!-- Footer End -->
             </div>

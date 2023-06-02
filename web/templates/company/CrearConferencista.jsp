@@ -56,41 +56,49 @@
                             <div class="col-sm-12 col-xl-6">
                                 <div class="bg-light rounded h-100 p-4">
                                     <h6 class="mb-4">Conferencista</h6>
-                                    <form action="../../ConferenController" method="get" >
+                                    <form action="../../ConferencistaController?accion=insertar" method="POST" class="was-validated"  >
                                         <div class="mb-3">
                                             <label for="exampleInputNombre" class="form-label">Nombre</label>
-                                            <input type="text" class="form-control" id="inputnombre" name="nombre">                                    
+                                            <input type="text" class="form-control" id="inputnombre" name="nombre" pattern="[A-Za-z\s]+" title="Ingrese solo letras" required>                                    
                                         </div>
 
                                         <div class="mb-3">
                                             <label for="exampleInputApellido" class="form-label">Apellido</label>
-                                            <input type="text" class="form-control" id="inputapellido" name="apellido">
+                                            <input type="text" class="form-control" id="inputapellido" name="apellido" pattern="[A-Za-z\s]+" title="Ingrese solo letras" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="exampleInputEmail" class="form-label">Correo electronico</label>
-                                            <input type="text" class="form-control" id="inputemail" name="correo">
+                                            <input type="email" class="form-control" id="email" name="correo" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="exampleInputCedula" class="form-label">Cedula</label>
-                                            <input type="text" class="form-control" id="inputcedula" name="cedula">
+                                            <input type="text" class="form-control" id="inputcedula" name="cedula" pattern="[0-9]{1,10}" inputmode="numeric" title="Ingrese de 1 a 10 dígitos numéricos" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="exampleInputTelefono" class="form-label">Telefono</label>
-                                            <input type="text" class="form-control" id="inputtelefono" name="telefono">
+                                            <input type="text" class="form-control" id="inputtelefono" name="telefono" pattern="[0-9]{10}" inputmode="numeric" title="Ingrese 10 dígitos numéricos" required>
                                         </div>
 
-                                        <button id="guardar" name="guardar" type="submit" class="btn btn-primary m-2">Registrar</button>
+
+                                        <button  type="submit" class="btn btn-primary m-2">Registrar</button>
                                     </form>
+                                    <div id="mensajeError">
+                                    <% String mensajeError = request.getParameter("mensajeError");
+                                       if (mensajeError != null) {
+                                           out.print(mensajeError);
+                                       }
+                                    %>
                                 </div>
                             </div>
                         </div>
-
-
-
                     </div>
-                    <!-- Form End -->
 
-                    <!-- Footer Start -->
+
+
+                </div>
+                <!-- Form End -->
+
+                <!-- Footer Start -->
                 <jsp:include page="includes/footer.jsp"></jsp:include>
                 <!-- Footer End -->
             </div>

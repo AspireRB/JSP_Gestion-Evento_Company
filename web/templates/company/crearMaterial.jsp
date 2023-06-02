@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,47 +52,52 @@
                     <!-- Navbar End -->
 
                     <!-- Form Start -->
-                    <div class="container-fluid pt-4 px-4">
-                        <div class="row g-4">
-                            <div class="col-sm-12 col-xl-6">
-                                <div class="bg-light rounded h-100 p-4">
-                                    <h6 class="mb-4">Material Conferencia</h6>
-                                    <form>
+                    <form action="../../MaterialController?accion=insertar" method="POST" enctype="multipart/form-data">
+                        <div class="container-fluid pt-4 px-4">
+                            <div class="row g-4">
+                                <div class="col-sm-12 col-xl-6">
+                                    <div class="bg-light rounded h-100 p-4">
+                                        <h6 class="mb-4">Material Conferencia</h6>
+
                                         <div class="mb-3">
                                             <label for="labelnombre">Nombre</label>
-                                            <input type="nombre" class="form-control" id="nombreMaterial">                                   
+                                            <input type="text" class="form-control" id="nombreMaterial" name="nombre">
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="floatingTextarea">Descripcion</label>
-                                            <textarea class="form-control" 
-                                                      id="descripcionMaterial" style="height: 100px;"></textarea>
+                                            <label for="floatingTextarea">Descripción</label>
+                                            <textarea class="form-control" id="descripcionMaterial" name="descripcion" style="height: 100px;"></textarea>
                                         </div>
+
                                         <div class="mb-3">
-                                            <select class="form-select" id="floatingSelect"
-                                                    aria-label="Floating label select example">
+                                            <label for="floatingSelect">Selecciona Conferencia</label>
+                                            <select class="form-select" id="floatingSelect" name="conferencia" aria-label="Floating label select example">
                                                 <option selected>Selecciona Conferencia</option>
-                                                <option value="1">Arquitectura</option>
-                                                <option value="2">Fisica</option>
-                                                <option value="3">Matematicas</option>
-                                            </select>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="formFile" class="form-label">Seleccione el archivo</label>
-                                            <input class="form-control" type="file" id="formFile">
-                                        </div>
+                                            <c:forEach items="${listaConferencia}" var="material">
+                                                <option value="${material.idConferencia}">${material.nombre}</option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
 
-                                        <a class="btn btn-primary m-2" href="index.jsp">Registrar</a>
-                                    </form>
+                                    <div class="mb-3">
+                                        <label for="formFile" class="form-label">Seleccione el archivo (PDF)</label>
+                                        <input class="form-control" type="file" id="formFile" name="archivo" accept=".pdf">
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary m-2">Registrar</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Form End -->
+                </form>
 
 
 
-                    <!-- Footer Start -->
+                <!-- Form End -->
+
+
+
+                <!-- Footer Start -->
                 <jsp:include page="includes/footer.jsp"></jsp:include>
                 <!-- Footer End -->
             </div>
