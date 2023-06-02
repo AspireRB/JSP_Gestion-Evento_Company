@@ -9,7 +9,6 @@ import java.sql.*;
 import config.Conexion;
 
 import domain.Empleado;
-import javax.swing.JOptionPane;
 
 /**
  *

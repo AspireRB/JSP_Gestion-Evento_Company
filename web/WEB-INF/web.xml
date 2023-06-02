@@ -12,6 +12,10 @@
         <servlet-name>MaterialController</servlet-name>
         <servlet-class>controller.MaterialController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ClienteController</servlet-name>
+        <servlet-class>controller.ClienteController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConferenController</servlet-name>
         <url-pattern>/ConferenController</url-pattern>
@@ -23,5 +27,9 @@
     <servlet-mapping>
         <servlet-name>MaterialController</servlet-name>
         <url-pattern>/MaterialController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ClienteController</servlet-name>
+        <url-pattern>/ClienteController</url-pattern>
     </servlet-mapping>
 </web-app>

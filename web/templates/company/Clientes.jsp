@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
 <%
 if (session.getAttribute("usuario") != null){
 %>
@@ -63,77 +64,36 @@ if (session.getAttribute("usuario") != null){
                         <input class="form-control border-0" type="search" placeholder="Buscar">
                     </form>
                     <div class="table-responsive">
-                        <table class="table text-start align-middle table-bordered table-hover mb-0">
-                            <thead>
-                                <tr class="text-dark">  
-                                    <th scope="col">#</th>
-                                    <th scope="col">Cedula</th>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Apellido</th>
-                                    <th scope="col">Telefono</th>
-                                    <th scope="col">Correo</th>
-                                    <th scope="col">Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>0000000000</td>
-                                    <td>N/A</td>
-                                    <td>N/A</td>
-                                    <td>0000000000</td>
-                                    <td>correo1@gmail.com</td>
-                                    <td><a class="btn btn-primary rounded-pill m-2" href="confirmAsistencia.jsp">Confirmar Asistencia</a>
-                                        <a class="btn btn-primary rounded-pill m-2" href="validarPago.jsp">Validar Pago</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>12093454</td>
-                                    <td>Daniela</td>
-                                    <td>Gonzales</td>
-                                    <td>31294581</td>
-                                    <td>correo2@gmail.com</td>
-                                    <td><a class="btn btn-primary rounded-pill m-2" href="confirmAsistencia.jsp">Confirmar Asistencia</a>
-                                        <a class="btn btn-primary rounded-pill m-2" href="validarPago.jsp">Validar Pago</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>12093456</td>
-                                    <td>Federico</td>
-                                    <td>Jimenez</td>
-                                    <td>31294530</td>
-                                    <td>correo3@gmail.com</td>
-                                    <td><a class="btn btn-primary rounded-pill m-2" href="confirmAsistencia.jsp">Confirmar Asistencia</a>
-                                        <a class="btn btn-primary rounded-pill m-2" href="validarPago.jsp">Validar Pago</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>12093452</td>
-                                    <td>Jose</td>
-                                    <td>Gualmir</td>
-                                    <td>31294584</td>
-                                    <td>correo4@gmail.com</td>
-                                    <td><a class="btn btn-primary rounded-pill m-2" href="confirmAsistencia.jsp">Confirmar Asistencia</a>
-                                        <a class="btn btn-primary rounded-pill m-2" href="validarPago.jsp">Validar Pago</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>12093453</td>
-                                    <td>Juan</td>
-                                    <td>Lopez</td>
-                                    <td>31294583</td>
-                                    <td>correo5@gmail.com</td>
-                                    <td><a class="btn btn-primary rounded-pill m-2" href="confirmAsistencia.jsp">Confirmar Asistencia</a>
-                                        <a class="btn btn-primary rounded-pill m-2" href="validarPago.jsp">Validar Pago</a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                                <table class="table text-start align-middle table-bordered table-hover mb-0">
+                                    <thead>
+                                        <tr class="text-dark">
+                                            <th scope="col">Cédula</th>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Apellido</th>
+                                            <th scope="col">Correo</th>
+                                            <th scope="col">Teléfono</th> 
+                                            <th scope="col">Acción</th>                                                                     
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                     <c:forEach items="${listaclientes}" var="cliente">
+                                        <tr>
+                                            <td>${cliente.cedula}</td>
+                                            <td>${cliente.nombre}</td>
+                                            <td>${cliente.apellido}</td>
+                                            <td>${cliente.correo}</td>
+                                            <td>${cliente.telefono}</td>
+                                            
+
+                                            <td>
+                                                <a class="btn btn-primary rounded-pill m-2" name="editar" href="confirmAsistencia.jsp">Confirmar asistencia</a>
+                                                <a class="btn btn-primary rounded-pill m-2" name="eliminar" href="validarPago.jsp">Validar pago</a>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
                 </div>
             </div>
             <!-- Recent Sales End -->

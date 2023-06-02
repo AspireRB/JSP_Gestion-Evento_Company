@@ -152,7 +152,7 @@ if (session.getAttribute("usuario") != null){
                                 </div>
                                 <div class="bg-light rounded p-3">
                                     <div class="m-n2">
-                                        <a class="btn btn-primary w-100" href="Clientes.jsp">Clientes</a>
+                                        <a class="btn btn-primary w-100" href="../../ClienteController?idEvento=1">Clientes</a>
                                     </div>
                                 </div>
                                 <div class="bg-light rounded p-3">

@@ -1,7 +1,7 @@
 <!-- Sidebar Start -->
 <div class="sidebar pe-4 pb-3">
     <nav class="navbar bg-light navbar-light">
-        <a href="index.html" class="navbar-brand mx-4 mb-3">
+        <a href="Eventos.jsp" class="navbar-brand mx-4 mb-3">
             <h3 class="text-primary"><i class="fa me-2"></i>Logistics</h3>
         </a>
         <div class="d-flex align-items-center ms-4 mb-4">
@@ -30,8 +30,7 @@
                     <a href="Ciudades.jsp" class="dropdown-item">Ciudad</a>
                     <a href="Lugares.jsp" class="dropdown-item">Lugar</a>
                 </div>
-            </div>            
-            <a href="Clientes.jsp" class="nav-item nav-link"><i class="fas fa-user-plus me-2"></i>Clientes</a>
+            </div>
             <a href="Certificados.html" class="nav-item nav-link"><i class="far fa-file-alt me-2"></i>Certificados</a>
             <!--<a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
             <div class="nav-item dropdown">
