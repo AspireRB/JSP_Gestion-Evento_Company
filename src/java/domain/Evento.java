@@ -9,41 +9,57 @@ import java.util.Date;
 public class Evento {
     
     private int id;
-    private String nombre, ciudad, lugar, descripcion;
-    private Date fechaInicio, fechaFin, horaInicio, horaFin;
+    private String nombre;
+    private Date fechaInicio;
+    private Date horaInicio;
+    private Date fechaFin;
+    private Date horaFin;
+    private String descripcion;
     private Double costo;
-    private Enum estado;
+    private String estado;
+    private int idEmpleado;
+    private int idLugar;
 
     public Evento() {
+        
     }
-       
-    public Evento(int id, String nombre, String ciudad, String lugar, String descripcion, Date fechaInicio, Date fechaFin, Date horaInicio, Date horaFin, Double costo, Enum estado) {
+
+    public Evento(int id, String nombre, Date fechaInicio, Date horaInicio, Date fechaFin, Date horaFin, String descripcion, Double costo, String estado) {
         this.id = id;
         this.nombre = nombre;
-        this.ciudad = ciudad;
-        this.lugar = lugar;
-        this.descripcion = descripcion;
         this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
         this.horaInicio = horaInicio;
+        this.fechaFin = fechaFin;
         this.horaFin = horaFin;
+        this.descripcion = descripcion;
         this.costo = costo;
         this.estado = estado;
     }
 
-    public Evento(String nombre, String ciudad, String lugar, String descripcion, Date fechaInicio, Date fechaFin, Date horaInicio, Date horaFin, Double costo, Enum estado) {
+    public Evento(int id) {
+        this.id = id;
+    }  
+
+    public Evento(String nombre, Date fechaInicio, Date horaInicio, Date fechaFin, Date horaFin, String descripcion, Double costo, String estado) {
         this.nombre = nombre;
-        this.ciudad = ciudad;
-        this.lugar = lugar;
-        this.descripcion = descripcion;
         this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
         this.horaInicio = horaInicio;
+        this.fechaFin = fechaFin;
         this.horaFin = horaFin;
+        this.descripcion = descripcion;
         this.costo = costo;
         this.estado = estado;
     }
 
+    public Evento(int idEmpleado, int idLugar) {
+        this.idEmpleado = idEmpleado;
+        this.idLugar = idLugar;
+    } 
+
+    public Evento(int id, String nombre, Date fechaInicio, Date horaInicio, Date fechaFin, Date horaFin, String descripcion, Double costo, String estado, int idEmpleado, int idLugar) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+        
     public int getId() {
         return id;
     }
@@ -60,44 +76,12 @@ public class Evento {
         this.nombre = nombre;
     }
 
-    public String getCiudad() {
-        return ciudad;
-    }
-
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
-    }
-
-    public String getLugar() {
-        return lugar;
-    }
-
-    public void setLugar(String lugar) {
-        this.lugar = lugar;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
     public Date getFechaInicio() {
         return fechaInicio;
     }
 
     public void setFechaInicio(Date fechaInicio) {
         this.fechaInicio = fechaInicio;
-    }
-
-    public Date getFechaFin() {
-        return fechaFin;
-    }
-
-    public void setFechaFin(Date fechaFin) {
-        this.fechaFin = fechaFin;
     }
 
     public Date getHoraInicio() {
@@ -108,12 +92,28 @@ public class Evento {
         this.horaInicio = horaInicio;
     }
 
+    public Date getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(Date fechaFin) {
+        this.fechaFin = fechaFin;
+    }
+
     public Date getHoraFin() {
         return horaFin;
     }
 
     public void setHoraFin(Date horaFin) {
         this.horaFin = horaFin;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public Double getCosto() {
@@ -124,12 +124,33 @@ public class Evento {
         this.costo = costo;
     }
 
-    public Enum getEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(Enum estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
-        
+
+    public int getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setIdEmpleado(int idEmpleado) {
+        this.idEmpleado = idEmpleado;
+    }
+
+    public int getIdLugar() {
+        return idLugar;
+    }
+
+    public void setIdLugar(int idLugar) {
+        this.idLugar = idLugar;
+    }
+
+    @Override
+    public String toString() {
+        return "Evento{" + "id=" + id + ", nombre=" + nombre + ", fechaInicio=" + fechaInicio + ", horaInicio=" + horaInicio + ", fechaFin=" + fechaFin + ", horaFin=" + horaFin + ", descripcion=" + descripcion + ", costo=" + costo + ", estado=" + estado + ", idEmpleado=" + idEmpleado + ", idLugar=" + idLugar + '}';
+    } 
+           
 }

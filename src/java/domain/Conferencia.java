@@ -6,14 +6,12 @@ package domain;
 
 import java.util.Date;
 
-/**
- *
- * @author DANIELA
- */
 public class Conferencia {
     int idConferencia;
     String nombre;
-    Date fecha, horaInicio, horaFin;
+    Date fecha;
+    Date horaInicio;
+    Date horaFin;
     int idEvento;
     int idSalon;
     int idConferencista;
@@ -22,10 +20,31 @@ public class Conferencia {
     public Conferencia() {
     }
 
+    public Conferencia(int idConferencia, String nombre, Date fecha, Date horaInicio, Date horaFin) {
+        this.idConferencia = idConferencia;
+        this.nombre = nombre;
+        this.fecha = fecha;
+        this.horaInicio = horaInicio;
+        this.horaFin = horaFin;
+    }
+
     public Conferencia(int idConferencia) {
         this.idConferencia = idConferencia;
     }
-    
+
+    public Conferencia(String nombre, Date fecha, Date horaInicio, Date horaFin) {
+        this.nombre = nombre;
+        this.fecha = fecha;
+        this.horaInicio = horaInicio;
+        this.horaFin = horaFin;
+    }
+
+    public Conferencia(int idEvento, int idSalon, int idConferencista, int idEmpleado) {
+        this.idEvento = idEvento;
+        this.idSalon = idSalon;
+        this.idConferencista = idConferencista;
+        this.idEmpleado = idEmpleado;
+    }
 
     public int getIdConferencia() {
         return idConferencia;
@@ -98,11 +117,10 @@ public class Conferencia {
     public void setIdEmpleado(int idEmpleado) {
         this.idEmpleado = idEmpleado;
     }
-    
-    
-    
-    
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return "Conferencia{" + "idConferencia=" + idConferencia + ", nombre=" + nombre + ", fecha=" + fecha + ", horaInicio=" + horaInicio + ", horaFin=" + horaFin + ", idEvento=" + idEvento + ", idSalon=" + idSalon + ", idConferencista=" + idConferencista + ", idEmpleado=" + idEmpleado + '}';
+    }   
+   
 }
