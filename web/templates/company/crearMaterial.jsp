@@ -1,5 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
+<%
+if (session.getAttribute("usuario") != null){
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -124,3 +127,8 @@
     </body>
 
 </html>
+<%
+}else{
+    response.sendRedirect("ingresar.jsp");
+}
+%>
