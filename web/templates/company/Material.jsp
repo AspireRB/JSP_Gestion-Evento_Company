@@ -79,11 +79,12 @@ if (session.getAttribute("usuario") != null){
                                             <td>${material.idMaterial}</td>
                                             <td>${material.nombre}</td>
                                             <td>${material.descripcion}</td>
-                                            <td>${material.rutaArchivo}</td>
-                                            
                                             <td>
-                                                <a class="btn btn-primary rounded-pill m-2" name="editar" href="../../ConferencistaController?accion=editar&amp;idConferencista=${conferencista.id}">Modificar</a>
-                                                <a class="btn btn-danger rounded-pill m-2" name="eliminar" href="../../ConferencistaController?accion=eliminar&amp;idConferencista=${conferencista.id}">Eliminar</a>
+                                                <a href="../../MaterialController?accion=ver&ruta=${material.rutaArchivo}" target="_blank">${material.rutaArchivo}</a>                                            </td>
+
+                                            <td>
+                                                <a class="btn btn-primary rounded-pill m-2" name="editar" href="../../MaterialController?accion=editar&idMaterial=${material.idMaterial}">Modificar</a>
+                                                <a class="btn btn-danger rounded-pill m-2" name="eliminar" href="../../MaterialController?accion=eliminar&idMaterial=${material.idMaterial}">Eliminar</a>
                                             </td>
                                         </tr>
                                     </c:forEach>
@@ -99,31 +100,31 @@ if (session.getAttribute("usuario") != null){
 
                 <!-- Footer Start -->
                 <jsp:include page="includes/footer.jsp"></jsp:include>
-                <!-- Footer End -->
+                    <!-- Footer End -->
+                </div>
+                <!-- Content End -->
+
+
+                <!-- Back to Top -->
+                <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
             </div>
-            <!-- Content End -->
 
+            <!-- JavaScript Libraries -->
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="../../static/lib/chart/chart.min.js"></script>
+            <script src="../../static/lib/easing/easing.min.js"></script>
+            <script src="../../static/lib/waypoints/waypoints.min.js"></script>
+            <script src="../../static/lib/owlcarousel/owl.carousel.min.js"></script>
+            <script src="../../static/lib/tempusdominus/js/moment.min.js"></script>
+            <script src="../../static/lib/tempusdominus/js/moment-timezone.min.js"></script>
+            <script src="../../static/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
-            <!-- Back to Top -->
-            <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-        </div>
+            <!-- Template Javascript -->
+            <script src="../../static/js/main.js"></script>
+        </body>
 
-        <!-- JavaScript Libraries -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="../../static/lib/chart/chart.min.js"></script>
-        <script src="../../static/lib/easing/easing.min.js"></script>
-        <script src="../../static/lib/waypoints/waypoints.min.js"></script>
-        <script src="../../static/lib/owlcarousel/owl.carousel.min.js"></script>
-        <script src="../../static/lib/tempusdominus/js/moment.min.js"></script>
-        <script src="../../static/lib/tempusdominus/js/moment-timezone.min.js"></script>
-        <script src="../../static/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-        <!-- Template Javascript -->
-        <script src="../../static/js/main.js"></script>
-    </body>
-
-</html>
+    </html>
 <%
 }else{
     response.sendRedirect("ingresar.jsp");
