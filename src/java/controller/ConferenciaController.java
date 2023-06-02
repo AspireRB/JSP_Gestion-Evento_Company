@@ -24,7 +24,7 @@ import model.ConferencistaDaoJDBC;
 import model.EmpleadoDAO;
 import model.EventoDAO;
 
-@WebServlet(name = "EventoController", urlPatterns = {"/EventoController"})
+@WebServlet(name = "ConferenciaController", urlPatterns = {"/ConferenciaController"})
 public class ConferenciaController extends HttpServlet {
 
     @Override
@@ -142,9 +142,9 @@ public class ConferenciaController extends HttpServlet {
         conferencia1.setHoraFin(horaFin);
                  
         ConferenciaDAO conferenciaDAO = new ConferenciaDAO();
-        boolean eventoExistente = conferenciaDAO.buscarConferencia(conferencia1);
+        boolean conferenciaExistente = conferenciaDAO.buscarConferencia(conferencia1);
 
-        if (eventoExistente) {
+        if (conferenciaExistente) {
             System.out.println("Ya existe");
             String mensajeError = "Ya existe un conferencista con esa cedula o correo";
             response.sendRedirect("templates/company/crearEvento.jsp?mensajeError=" + mensajeError);
@@ -189,46 +189,5 @@ public class ConferenciaController extends HttpServlet {
         System.out.println("se elimino = " + eliminado);
         this.listaConferencias(request, response);
     }
-    
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 }
