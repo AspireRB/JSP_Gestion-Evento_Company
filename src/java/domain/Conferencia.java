@@ -46,6 +46,10 @@ public class Conferencia {
         this.idEmpleado = idEmpleado;
     }
 
+    public Conferencia(int id, String nombre, Date fecha, Date horaInicio, Date horaFin, int idEvento, int idSalon, int idConferencista, int idEmpleado) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     public int getIdConferencia() {
         return idConferencia;
     }

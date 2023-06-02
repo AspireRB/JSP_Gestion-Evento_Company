@@ -30,7 +30,7 @@ public class EventoDAO {
     private static final String SQL_SELECT_BY_ID = "SELECT idEvento, nombre, fechaInicio, horaInicio, fechaFin, horaFin, descripcion, costo, estado, Empleado_idEmpleado, Lugar_idLugar"
             + " FROM Evento WHERE idEvento = ?";
     private static final String SQL_SELECT_BY_nombre = "SELECT idEvento, nombre, fechaInicio, horaInicio, fechaFin, horaFin, descripcion, costo, estado, Empleado_idEmpleado, Lugar_idLugar"
-            + "FROM Conferencista WHERE nombre = ?";
+            + "FROM Evento WHERE nombre = ?";
     private static final String SQL_DELETE = "DELETE FROM Evento WHERE idEvento = ?";
         
     public int insertar(Evento evento){
@@ -82,6 +82,7 @@ public class EventoDAO {
                               
                 Evento evento = new Evento();
                 evento.setId(id);
+                evento.setNombre(nombre);
                 evento.setFechaInicio(fechaInicio);
                 evento.setHoraInicio(horaInicio);
                 evento.setFechaFin(fechaFin);
